@@ -1,0 +1,205 @@
+
+
+System.out.println
+class Sample
+{
+	public static void main(String args[])
+	{
+		System.out.println("hello");
+		Jungle.lionKing.roar();
+		CricketGround.sachin.hitSixer();
+	}
+}
+class System
+{
+	static PrintStream out;// is a member here
+
+}
+class Jungle
+{
+	static Lion lionKing = new Lion();
+	
+}
+
+class PrintStream
+{
+	void println(String str)
+	{
+	}
+
+}
+class Lion
+{
+	void roar()
+	{
+	}
+}
+class CricketGround
+{
+	static Cricketer sachin;
+
+}
+class Cricketer
+{
+	void hitSixer()
+	{
+	}
+}
+						Data types
+							|
+				-----------------------------------------------
+				|									|
+			primitive									secondary
+				  |
+	-----------------------------------------
+	|			|			|		|
+	Integral		Floating		Boolean	Character
+	|			|			|		|
+	byte  1		float  4	boolean 1		char 2
+	short 2		double 8
+	int   4
+	long	 8
+
+Mission : Clear M1 with 340 score
+
+				who
+				|role? clear M1, BU Round
+			------------
+			|		|
+			where	when
+			|space  +	|time = MIND
+		------------------------
+		|		|		|
+		why		what		how
+		|		|		|
+		REASON  INFORMATION IMPLEMENTATION
+M  30 Java
+T  31 Java
+W   1 Holiday
+Th  2 Java
+F   3 Power Skill 0.25 Java
+------------
+S   4 Solo Orientation
+Su  5 Holiday
+------------
+M   6 Java
+T   7 Java
+W   8 Java
+Th  9 Java
+F  10 Advanced Java
+------------
+S  11 Generative AI
+Su 12
+------------
+M  13 Power Skills 0.25, Advanced Java
+T  14 Holiday - 
+W  15 Advanced Java
+Th 16 Advanced Java
+F  17 Advanced Java
+-------------
+S  18 Agile Software Development
+Su 19 Holiday
+-------------
+M  20 Advanced Java
+T  21 Power Skills - full day
+W  22 --- M1
+
+
+
+
+
+OOPS
+------
+Object Oriented programming system
+
+POPS				vs		OOPS
+|						|
+procedure <-- data		data<---procedure
+
+few global vars		object - sachin
+	|				object - savingsAccount
+few funsA				object - musician
+main()B
+few funsC
+
+
+	object = state + behaviour
+						
+	savings	= acno	+ withdraw(){...}
+	account	  acholder  deposit(){...}
+			  actype    transferFunds(){...}
+			  acbalance getBalance(){ ...}
+					  changeName(){}
+					changeAccType(){}
+
+	sachin  = score + hitSixer(){}, hitFourRuns()
+			age		hitOneRun(){}
+			odi
+			
+
+				customerA
+				  |
+		+-----------+
+		| cloth material
+		|
+shirt tailor
+		|
+		A measureCloth()
+
+contract of a class
+	= the concern of a data with its
+		relevant functions
+		|	datalist				|
+		|B measureCustomerABody(){}	|
+		|	data list is initialized	|
+		|C makeACuttingDiagram		|
+		|	AsPerTheMeasurements	|
+		D cutTheClothIntoPieces
+		E stitchIt
+		E1 playingInDadsCabinAndScribbing()
+		F pressIt
+		G packIt
+		I deliverIt
+	yes no		yesno   noyes
+
+
+
+class			vs			object
+|							|
+design of the "object"	instance of a "class"
+	LOGICAL					PHYSICAL
+	eg.						eg. 
+	diagram 					the actual/	
+	or a bluepring				real house(s)
+	of a house
+		
+	paper/pencil				land, bricks	
+	scale					building
+	drawing material			material
+							
+class Cricketer
+{
+	void hit()
+	{
+	}
+}	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
