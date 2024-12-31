@@ -6,23 +6,23 @@ public class CricketerTest {
 		System.out.println("Cricketer test");
 //		classname  refname = allocator  constructor
 //			|		|		 |			  |	
-		Cricketer batsman = new 	Cricketer(); //object is created
-		batsman.hit();
-		int currentScore = batsman.hitIt(24,"Leg Spin");
+		Cricketer virat = new 	Cricketer(); //object is created
+		virat.hit();
+		int currentScore = virat.hitIt(24,"Leg Spin");
 		System.out.println("Current score is : "+currentScore);
 		
-		currentScore = currentScore + batsman.hitIt(50,"Off Spin");
+		currentScore = currentScore + virat.hitIt(50,"Off Spin");
 		System.out.println("Current score is : "+currentScore);
 
-		currentScore = currentScore + batsman.hitIt(150,"Yorker");
+		currentScore = currentScore + virat.hitIt(150,"Yorker");
 		System.out.println("Current score is : "+currentScore);
 		
-		currentScore = currentScore + batsman.hitSixer();
+		currentScore = currentScore + virat.hitSixer();
 		System.out.println("Current score is : "+currentScore);
 		
 		
-		batsman.hitting(123);
-		batsman.hitSixer();
+		virat.hitting(123);
+		virat.hitSixer();
 		
 	}
 

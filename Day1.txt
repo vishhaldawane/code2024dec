@@ -192,6 +192,34 @@ class Cricketer
 
 
 
+OOPS
+------
+1. Abstraction
+	-it is the "What is?" part of an object
+	-hides the complexities of an object
+	-provide the simple USAGE of the object
+		using accessible functions
+
+		Pattern.matches
+
+		What is an ATM?
+		- dispense the cash
+
+	a. data level
+	b. method level
+	c. class level
+
+
+	
+2. Encapsulation
+	- it is the "How is it?" part of an object
+	- it codes the complexities of an object
+	- data encapsulation
+		- private data
+
+3. Polymorphism
+4. Inheritance
+5. Object communication
 
 
 
