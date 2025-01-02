@@ -338,13 +338,13 @@ class Books extends Library
 			--------------------------
 			|					|
 		MusicalInstrument		MedicalInstrument
-			|					|
+			|play()				|operate()
 	--------------------		------------------
 	|			|			|			|
 	StringBased	AirBased	  Surgical	Pathological
 	Musical		Musical	  Medical		Medical
 	Instrument	Instrument  Instrument	Instrument
-	|			|			|			|
+	|tuneString()	 |blowAir()	|sterilize()	 |count()
   --------	---------		----------	------------
   | 	    |	|	   |		|		|	|		|
 Guitar Violin Flute Clarinet	Cutter Needle GlucoMeter ECGMachine
