@@ -22,6 +22,7 @@ class SavingsAccount
 	
 	//this. points to the current class's object's data
 							//local variables
+	
 	public SavingsAccount(int accountNumber, String accountHolder, double accountBalance) {
 		super();
 		this.accountNumber = accountNumber;
@@ -36,6 +37,7 @@ class SavingsAccount
 		System.out.println("acbal  : "+accountBalance);
 		System.out.println("------------------");
 	}
+	
 	void deposit(double amountToDeposit) 
 	{
 		System.out.println("Depositing cash.."+amountToDeposit);

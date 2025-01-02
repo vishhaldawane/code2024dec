@@ -217,15 +217,49 @@ OOPS
 	- data encapsulation
 		- private data
 
+
 3. Polymorphism
+   ability of a business entity to have multiple forms
+		a) class extension
+		b) function overloading
+		class Tiger
+		{
+			void jump() { }
+			void jump(int height) { }
+			void jump(int height, int length) { }
+			void jump(float height) { }
+			void jump(float height, int length) { }
+			void jump(int height, float length) { }
+		}
+		c) function overriding
+		d) operator overloading
+
 4. Inheritance
 5. Object communication
 
 
 
+Generalization		vs	Specialization
+
+"The height of your suceess cannot exceed
+the height of your personal development"
+
+Success = health + wealth + relationships + 
+			mental peace
+ 
+PD = 6 factors
+
+	class Point2D
+	{
+		
+	}
 
 
-
+				Association
+					|
+		-------------------------------
+		|		|		|		|
+		isA		hasA		usesA	producesA
 
 
 
