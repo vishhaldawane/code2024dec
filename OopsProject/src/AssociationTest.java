@@ -1,4 +1,19 @@
+//te=ar
 
+/*
+ * 
+ * 			i k , i k
+ * 
+ * 			i k, i d k
+ * 
+ * 			i d k, i k
+ * 
+ * 			i d k , i d k
+ * 
+ * 
+ * 
+ * 
+ */
 public class AssociationTest {
 	public static void main(String[] args) {
 		System.out.println("begin main");

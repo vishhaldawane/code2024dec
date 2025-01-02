@@ -235,6 +235,54 @@ OOPS
 		d) operator overloading
 
 4. Inheritance
+		acquiring properties from existing business entities
+
+		a. single level
+			A
+			|
+			B
+
+		b. multi level
+			A
+			|
+			B
+			|
+			C
+
+		c. multiple level*
+
+			A		B
+			|		|
+			-----------
+				|
+				C
+
+		from the above parent A and B, either 
+		must be an interface
+
+		A	B	   C		D
+		|	<--- interfaces-->
+		E
+
+		class A
+		{
+		}
+		interface B { }
+		interface C { }
+		interface D { }
+		
+		class E extends A implements B,C,D
+
+			
+		d. hierarchical level
+
+
+
+
+
+
+
+
 5. Object communication
 
 
@@ -247,7 +295,7 @@ the height of your personal development"
 Success = health + wealth + relationships + 
 			mental peace
  
-PD = 6 factors
+PD = 6 factors					u		
 
 	class Point2D
 	{
@@ -262,6 +310,28 @@ PD = 6 factors
 		isA		hasA		usesA	producesA
 
 
+class Vehicle
+{
+}
+class Car extends Vehicle
+{
+}
+class SedanCar extends Car
+{
+}
+
+
+class School
+
+
+{
+}
+class Library extends School
+{
+}
+class Books extends Library
+{
+}
 
 
 
