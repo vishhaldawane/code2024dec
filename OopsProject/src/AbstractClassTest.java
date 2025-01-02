@@ -30,14 +30,13 @@ public class AbstractClassTest {
  */
 interface Instrument
 {
-	abstract void use();//undefined
+	public abstract void use();//undefined
 }
-abstract class MusicalInstrument extends Instrument
+abstract class MusicalInstrument implements Instrument
 {
 	abstract void play();//undefined
 	
 }
-
 abstract class StringBasedMusicalInstrument extends MusicalInstrument
 {
 	abstract void tuneStrings();//undefined
@@ -48,7 +47,7 @@ abstract class StringBasedMusicalInstrument extends MusicalInstrument
 //The type Guitar must implement the inherited abstract method MusicalInstrument.play()
 class Guitar extends StringBasedMusicalInstrument
 {
-	void use() {}//3) implemented (mandate)
+	public void use() {}//3) implemented (mandate)
 	void play() {}//3) implemented (mandate)
 	void tuneStrings() {}//3) implemented (mandate)
 	
@@ -77,6 +76,41 @@ class GraphicalChess extends Chess
 		System.out.println("moving L shape on gui panel screen");
 	}
 }
+
+
+interface A{ 
+	void fun();
+}
+//The type B must implement the
+//inherited abstract method A.fun()
+abstract class B implements A
+{
+	abstract void foo();
+}
+abstract class C extends B
+{
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

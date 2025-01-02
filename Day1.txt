@@ -333,5 +333,23 @@ class Books extends Library
 {
 }
 
+					Instrument
+						|
+			--------------------------
+			|					|
+		MusicalInstrument		MedicalInstrument
+			|					|
+	--------------------		------------------
+	|			|			|			|
+	StringBased	AirBased	  Surgical	Pathological
+	Musical		Musical	  Medical		Medical
+	Instrument	Instrument  Instrument	Instrument
+	|			|			|			|
+  --------	---------		----------	------------
+  | 	    |	|	   |		|		|	|		|
+Guitar Violin Flute Clarinet	Cutter Needle GlucoMeter ECGMachine
+  |		|	|	     |	    |	|	|			|
+Electric Cello Carnatic Sopranino |  Suture Continuous	  ECGAIMachine
+Guitar		Flute		BoneCutter    GlucoMeter
 
 
