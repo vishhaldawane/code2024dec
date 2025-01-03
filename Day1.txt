@@ -394,3 +394,62 @@ class Test
 
 
 
+Packages
+
+	- to organize relevant classes into folders
+
+	- similar to directories/folders on OS
+
+	- package name must be in lower case
+
+package com.vishal.dba;
+
+class DriverManager
+{
+	int rollNumber;
+
+		void openTheData()
+		{
+		}
+}
+
+
+	Folder
+
+
+				jungle
+				  |
+			-------------------------------
+			|	  |		|		|
+			cave  river	tree		farm
+			|	  |		|		|
+		   Tiger  Frog		Parrot	FarmHouse
+		   Lion	Fish		Monkey	Hen
+								Dog
+
+		1.        <-- default/accessible/friendly/package scope
+		2. private 
+		3. protected
+		4. public 
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
