@@ -353,3 +353,44 @@ Electric Cello Carnatic Sopranino |  Suture Continuous	  ECGAIMachine
 Guitar		Flute		BoneCutter    GlucoMeter
 
 
+
+
+		static		final		abstract
+======================================================
+	  |shared data  |it is a constant|
+field  |across all   |that cannot be  |
+	  |the objects  |changed         |
+	  |of a class   |                |
+------------------------------------------------------
+	  |used to refer|it cann be over-|
+method |other static |ridden by the   |
+       |data/methods |child class     |
+------------------------------------------------------
+class  |defer        |cannot be extend|
+       |             |ed/subclassed   |
+------------------------------------------------------
+
+	
+
+
+class Test
+{
+	int i=100; //FIELD/instance members/data members
+
+	void fun()
+	{
+		int i=90; // local variable
+	}
+	void foo()
+	{
+		int i=80;
+		sop(i);
+	}
+
+
+}
+
+
+
+
+

@@ -3,7 +3,12 @@ public class AbstractClassTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-			GraphicalChess gc = new GraphicalChess();
+		
+			Master d = new Disciple();
+			d.fight();
+			//d.fightWithStamina();
+			
+			Chess gc = new GraphicalChess();
 			gc.moveKnight();
 			
 			if(gc instanceof Chess) {
@@ -63,7 +68,7 @@ class ElectricGuitar extends Guitar
 class Chess
 {//pawn,Rook, Bishop(camel), Knight, Queen, King
 	
-	void moveKnight() {//overridden
+	final void moveKnight() {//overridden
 		System.out.println("moving L shape (2.5) steps");
 	}
 }
@@ -71,10 +76,8 @@ class Chess
 //Nupur
 class GraphicalChess extends Chess
 {
-	void moveKnight() {//over-riding
-		super.moveKnight();
-		System.out.println("moving L shape on gui panel screen");
-	}
+	//Cannot override the final method from Chess
+	
 }
 
 
@@ -91,7 +94,20 @@ abstract class C extends B
 {
 	
 }
-
+class Master
+{
+	final void fight()
+	{
+		System.out.println("Master is teaching how to fight and defend");
+	}
+}
+class Disciple extends Master
+{
+	void fightWithStamina()
+	{
+		System.out.println("Disciple knows hot to fight with stamina...");
+	}
+}
 
 
 
