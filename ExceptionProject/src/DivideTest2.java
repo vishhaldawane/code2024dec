@@ -23,6 +23,9 @@ public class DivideTest2 {
 				
 				System.out.println("Dividing "+num+" by "+deno);
 				int division = num / deno;
+				//10/0 -> JVM -> if (deno==0)
+				// it will throw ArithmeticException's 
+				//object else it will send it to the-> CPU
 				System.out.println("division : "+division);
 				System.out.println("====================");
 
@@ -36,6 +39,13 @@ public class DivideTest2 {
 			{
 				System.out.println("pls supply numerics ...");
 	
+			}
+			catch(RuntimeException e)
+			{
+				
+			}
+			catch(Exception e) {
+				
 			}
 			
 		}
@@ -115,7 +125,7 @@ public class DivideTest2 {
 					Object
 						|
 			----------------------------
-					|
+					|isA
 					Throwable
 					|
 		-------------------
@@ -123,15 +133,20 @@ public class DivideTest2 {
 	  Error		Exception
 					|  [ checked ]
 			---------------------
-			|
-	RuntimeException
+			|					|
+	RuntimeException		CarKeyNotFoundException
 			| [ unchecked ]
 		---------------------------
-		| isA
-		|		
-	ArithmeticException				
-					
-					
+		| isA			|	|
+		|				|NullPointerException
+	ArithmeticException	|String str=null; sop(str.toUpperCase());
+		10/0		IndexOutOfBoundsException
+						|
+			---------------------------
+			|						|
+	StringIndexOutOfBoundsException ArrayIndexOutOfBoundsException
+		String str="India";			int ary[]={10,20,30}
+		sop(str.charAt(10));		sop(ary[4]);
 					
 					
 					
