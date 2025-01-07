@@ -3,20 +3,54 @@ public class SwapTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		IntegerPair intPair = new IntegerPair(10,20);
-		intPair.printIntegerPair();
-		intPair.swap();
-		intPair.printIntegerPair();
-		System.out.println("--------------");
-		FloatPair floatPair = new FloatPair(12.3f, 88.5f);
-		floatPair.printFloatPair();
-		floatPair.swap();
-		floatPair.printFloatPair();
+		AnyPair pair1 = new AnyPair(10,20);
+		pair1.printAnyPair();
+		pair1.swap();
+		pair1.printAnyPair();
 		
+		System.out.println("--------------");
+		
+		AnyPair pair2 = new AnyPair(12.3f, 88.5f);
+		pair2.printAnyPair();
+		pair2.swap();
+		pair2.printAnyPair();
+		
+		System.out.println("--------------");
+		
+		AnyPair pair3 = new AnyPair("Jack", "Julie");
+		pair3.printAnyPair();
+		pair3.swap();
+		pair3.printAnyPair();
 		
 	}
 	
 }
+
+class  AnyPair<T> // <-- Generic Container
+{
+	T i; // <-- Generic Content
+	T j;
+	
+	public AnyPair(T i, T j) {
+		super();
+		this.i = i;
+		this.j = j;
+	}
+	void printAnyPair() //Generic Iterator [ below only print]
+	{
+		System.out.println("i "+i);
+		System.out.println("j "+j);
+	}
+	void swap() //Generic Algorithm
+	{
+		System.out.println("--swapping----");
+		T temp = i;
+		i = j;
+		j = temp;
+		System.out.println("--swapped----");
+	}	
+}
+
 //i want the swap activity to be done for 10.4f and 56.9f too
 class  IntegerPair
 {
