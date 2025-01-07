@@ -3,21 +3,21 @@ public class SwapTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		AnyPair pair1 = new AnyPair(10,20);
+		AnyPair<Integer> pair1 = new AnyPair<Integer>(10,20);
 		pair1.printAnyPair();
 		pair1.swap();
 		pair1.printAnyPair();
 		
 		System.out.println("--------------");
 		
-		AnyPair pair2 = new AnyPair(12.3f, 88.5f);
+		AnyPair<Float> pair2 = new AnyPair<Float>(12.3f, 34.6f);
 		pair2.printAnyPair();
 		pair2.swap();
 		pair2.printAnyPair();
 		
 		System.out.println("--------------");
 		
-		AnyPair pair3 = new AnyPair("Jack", "Julie");
+		AnyPair<String> pair3 = new AnyPair<String>("Jack", "Julie");
 		pair3.printAnyPair();
 		pair3.swap();
 		pair3.printAnyPair();
