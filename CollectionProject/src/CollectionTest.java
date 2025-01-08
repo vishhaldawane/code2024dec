@@ -12,10 +12,11 @@ public class CollectionTest {
 		Song s1 = new Song("My Heart Will Go On", "Celine D", "Titanic", 1996);
 		Song s2 = new Song("Zhingat", "Ajay Atul", "Sairat", 2016);
 		Song s3 = new Song("I want it that way","Backstreet Boys11", "Backstreet Boys", 2016);
-		Song s6 = new Song("I want it that way","Backstreet Boys11", "Backstreet Boys", 1998);
 
 		Song s4 = new Song("Kolavari", "Dhanush", "3", 2016);
 		Song s5 = new Song("Lungi Dance", "Honey Singh","Chennai Express", 2019);
+		Song s6 = new Song("I want it that way","Backstreet Boys11", "Backstreet Boys", 1998);
+
 		System.out.println("Content is created...");
 		
 		Song s7 = s5;
@@ -97,12 +98,16 @@ class Song implements Comparable<Song>
 
 	@Override
 	public int hashCode() {
+		System.out.println("hashCode invoked....");
+
 		return Objects.hash(year);
+		
 	}
 
 
 	@Override
 	public boolean equals(Object obj) {
+		System.out.println("equals invoked....");
 		if (this == obj)
 			return true;
 		if (obj == null)
