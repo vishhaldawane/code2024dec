@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.TreeSet;
 
 public class CollectionTest {
@@ -10,14 +11,16 @@ public class CollectionTest {
 		// TODO Auto-generated method stub
 		Song s1 = new Song("My Heart Will Go On", "Celine D", "Titanic", 1996);
 		Song s2 = new Song("Zhingat", "Ajay Atul", "Sairat", 2016);
-		Song s3 = new Song("I want it that way","Backstreet Boys", "Backstreet Boys", 1998);
-		Song s6 = new Song("I want it that way","Backstreet Boys", "Backstreet Boys", 1998);
+		Song s3 = new Song("I want it that way","Backstreet Boys11", "Backstreet Boys", 2016);
+		Song s6 = new Song("I want it that way","Backstreet Boys11", "Backstreet Boys", 1998);
 
-		Song s4 = new Song("Kolavari", "Dhanush", "3", 2014);
+		Song s4 = new Song("Kolavari", "Dhanush", "3", 2016);
 		Song s5 = new Song("Lungi Dance", "Honey Singh","Chennai Express", 2019);
 		System.out.println("Content is created...");
 		
 		Song s7 = s5;
+		//equal(means data wise equal)
+		//objects must  have equal hashcode
 		
 		
 		
@@ -26,8 +29,8 @@ public class CollectionTest {
 		System.out.println("Creating container....");
 		//ArrayList<Song> jukeBox = new ArrayList<Song>();
 	//	LinkedList<Song> jukeBox = new LinkedList<Song>();
-		TreeSet<Song> jukeBox = new TreeSet<Song>();
-//		HashSet<Song> jukeBox = new HashSet<Song>();
+	//	TreeSet<Song> jukeBox = new TreeSet<Song>();
+		HashSet<Song> jukeBox = new HashSet<Song>();
 
 		System.out.println("Container created...");
 		System.out.println("---------");
@@ -83,7 +86,35 @@ class Song implements Comparable<Song>
 	private String album;
 	private int year;
 	
-//	public int compareTo(Song x)
+	
+	
+	
+	
+
+
+	
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(year);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Song other = (Song) obj;
+		return year == other.year;
+	}
+
+
+	//	public int compareTo(Song x)
 //	{
 //		System.out.println("comparing "+title+ " with "+x.title);
 //		return title.compareTo(x.title);
