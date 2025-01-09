@@ -269,12 +269,29 @@ class Y extends X
 
 
 
+
+
 @FunctionalInterface
+//pure partial contract of a class - words are worlds
 interface MathActivity
 {
 	int expression(int x, int y); // pure abstract method
-	//int expr2(int i);
 }
+class Subtraction implements MathActivity
+{
+	public int expression(int i, int j) {
+		return i-j;
+	}
+}
+
+
+
+
+
+
+
+
+
 class Addition implements MathActivity
 {
 	public int expression(int x, int y) {
