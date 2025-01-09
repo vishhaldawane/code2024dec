@@ -6,12 +6,12 @@ public class ProducesATest {
 		
 		
 		//Cow cow     = new Cow();
-		Buffalow buff = new Buffalow();
+	/*	Buffalow buff = new Buffalow();
 		Milk milk1  = buff.milkABuffalow();
 		//Milk milk1 = cow.milkACow();
 		milk1.showMilk();
-		
-		System.out.println("----------------");
+	*/	
+	/*	System.out.println("----------------");
 
 		Curd curd = milk1.coagulate();
 		curd.showCurd();
@@ -25,6 +25,10 @@ public class ProducesATest {
 
 		ClarifiedButter clarifiedButter = butter.boil();
 		clarifiedButter.showClarifiedButter();
+		*/
+		
+		ClarifiedButter cl = new Cow().milkACow().coagulate().churn().boil();
+		cl.showClarifiedButter();
 	}
 
 }

@@ -602,3 +602,857 @@ Binding(COMMAND+SHIFT+T,
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2025-01-09 09:29:05.088
 !MESSAGE 
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2025-01-09 12:12:22.677
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [Fruit(String, String, float) [in Fruit [in [Working copy] MethodChainingTest.java [in <default> [in src [in LambdaProject]]]]] does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newNotPresentException(JavaElement.java:574)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:617)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:327)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:313)
+	at org.eclipse.jdt.internal.core.SourceRefElement.getSourceRange(SourceRefElement.java:233)
+	at org.eclipse.jdt.internal.core.Member.getJavadocRange(Member.java:301)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContentFromSource(JavadocContentAccess2.java:639)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:515)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:748)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:666)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:658)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2025-01-09 12:12:22.679
+!MESSAGE Fruit(String, String, float) [in Fruit [in [Working copy] MethodChainingTest.java [in <default> [in src [in LambdaProject]]]]] does not exist
+
+!ENTRY org.eclipse.jdt.core 4 4 2025-01-09 12:44:57.747
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+
+public class MethodChainingTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		/*
+		Liquid liquid1 = new Liquid(1,"Thin","White","LittleSour","SlightSweet",20.1f);
+		System.out.println("liquid taste : "+liquid1.getTaste());
+		System.out.println("liquid color : "+liquid1.getColor());
+		System.out.println("liquid temp  : "+liquid1.getTemperature());
+
+		Fruit fruit = new Fruit("Chickoo","Brown",0.150f,"Sweet");	
+		
+		Liquid liquid2 = Kitchen.create(liquid1, fruit);
+		
+		System.out.println("--- after adding Fruit ----");
+		System.out.println("liquid taste : "+liquid1.getTaste());
+		System.out.println("liquid color : "+liquid1.getColor());
+		System.out.println("liquid temp  : "+liquid1.getTemperature());
+
+		Ice ice = new Ice(-5.0f,"Bisleri","Cube",0.150f,4);
+		
+		Liquid liquid3 = Kitchen.create(liquid2, ice);
+		
+		System.out.println("--- after adding ice ----");
+
+		System.out.println("liquid taste : "+liquid1.getTaste());
+		System.out.println("liquid color : "+liquid1.getColor());
+		System.out.println("liquid temp  : "+liquid1.getTemperature());
+
+		System.out.println("--------------");
+		
+		System.out.println("liquid1 "+liquid1.hashCode());
+		System.out.println("liquid2 "+liquid2.hashCode());
+		System.out.println("liquid3 "+liquid3.hashCode());
+		*/
+		
+		/*
+		Liquid liquid1 = new Liquid(1,"Thin","White","LittleSour","SlightSweet",20.1f);
+		Fruit fruit = new Fruit("Chickoo","Brown",0.150f,"Sweet");	
+		Ice ice = new Ice(-5.0f,"Bisleri","Cube",0.150f,4);
+
+		System.out.println("color "+liquid1.getColor());
+		System.out.println("qty   "+liquid1.getQuantity());
+		System.out.println("temp  "+liquid1.getTemperature());
+
+		System.out.println("-------------");
+		
+		Liquid liquid2 = liquid1.make(fruit);
+		
+		System.out.println("color "+liquid1.getColor());
+		System.out.println("qty   "+liquid1.getQuantity());
+		System.out.println("temp  "+liquid1.getTemperature());
+		
+		System.out.println("-------------");
+		
+		Liquid liquid3 = liquid1.make(ice);
+
+		System.out.println("color "+liquid1.getColor());
+		System.out.println("qty   "+liquid1.getQuantity());
+		System.out.println("temp  "+liquid1.getTemperature());
+
+		System.out.println("-------------");
+		
+		System.out.println("liquid  "+liquid1);
+		System.out.println("liquid2 "+liquid2);
+		System.out.println("liquid3 "+liquid3);
+		*/
+		
+		Liquid liquid1 = new Liquid(1,"Thin","White","LittleSour","SlightSweet",20.1f);
+		Fruit fruit = new Fruit("Chickoo","Brown",0.150f,"Sweet");	
+		Ice ice = new Ice(-5.0f,"Bisleri","Cube",0.150f,4);
+
+		Liquid x = liquid1.addFruit(fruit).addIce(ice);
+		System.out.println("color "+x.getColor());
+		System.out.println("qty   "+x.getQuantity());
+		System.out.println("temp  "+x.getTemperature());
+
+		
+	}
+}
+class Talk
+{
+	String line;
+	
+	Talk(String )
+	
+	Talk chatting(String str)
+	{
+		return new Talk();
+	}
+}
+
+class Liquid
+{
+	float  quantity;//weight
+	String density;//skin
+	String color;//eye
+	String taste;//tongue
+	String odour; //nose
+	float temperature;
+	
+	Liquid addFruit(Fruit fruit)
+	{
+		 setQuantity(getQuantity()+fruit.getWeight());
+		 setColor(fruit.getColor());
+		 setTaste(fruit.getTaste());
+		 return this;
+	}
+	
+	Liquid addIce(Ice ice)
+	{
+		 setQuantity(getQuantity()+ice.getWeight());
+		 setTemperature(getTemperature()+ice.getTemperature());
+		 return this;
+	}
+	
+	public Liquid(float quantity, String density, String color, String taste, String odour, float temp) {
+		super();
+		this.quantity = quantity;
+		this.density = density;
+		this.color = color;
+		this.taste = taste;
+		this.odour = odour;
+		this.temperature = temp;
+	}
+
+	public float getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(float quantity) {
+		this.quantity = quantity;
+	}
+
+	public String getDensity() {
+		return density;
+	}
+
+	public void setDensity(String density) {
+		this.density = density;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getTaste() {
+		return taste;
+	}
+
+	public void setTaste(String taste) {
+		this.taste = taste;
+	}
+
+	public String getOdour() {
+		return odour;
+	}
+
+	public void setOdour(String odour) {
+		this.odour = odour;
+	}
+
+	public float getTemperature() {
+		return temperature;
+	}
+
+	public void setTemperature(float temperature) {
+		this.temperature = temperature;
+	}
+
+	
+	
+	
+	
+}
+
+
+class Fruit
+{
+	String fruitName;
+	String color;
+	float weight;
+	String taste;
+	
+	public Fruit(String fruitName, String color, float weight, String taste) {
+		super();
+		this.fruitName = fruitName;
+		this.color = color;
+		this.weight = weight;
+		this.taste = taste;
+	}
+	public String getFruitName() {
+		return fruitName;
+	}
+	public void setFruitName(String fruitName) {
+		this.fruitName = fruitName;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public float getWeight() {
+		return weight;
+	}
+	public void setWeight(float weight) {
+		this.weight = weight;
+	}
+	public String getTaste() {
+		return taste;
+	}
+	public void setTaste(String taste) {
+		this.taste = taste;
+	}
+	
+	
+	
+}
+
+class Ice
+{
+	float temperature;
+	String waterType;
+	String shape;
+	float weight;
+	int quantity;
+	
+	public Ice(float temperature, String waterType, String shape, float weight, int quantity) {
+		super();
+		this.temperature = temperature;
+		this.waterType = waterType;
+		this.shape = shape;
+		this.weight = weight;
+		this.quantity = quantity;
+	}
+	
+	
+	
+	
+	public String getWaterType() {
+		return waterType;
+	}
+
+
+
+
+	public void setWaterType(String waterType) {
+		this.waterType = waterType;
+	}
+
+
+
+
+	public float getTemperature() {
+		return temperature;
+	}
+	public void setTemperature(float temperature) {
+		this.temperature = temperature;
+	}
+	public String getShape() {
+		return shape;
+	}
+	public void setShape(String shape) {
+		this.shape = shape;
+	}
+	public float getWeight() {
+		return weight;
+	}
+	public void setWeight(float weight) {
+		this.weight = weight;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
+	
+}
+
+class Kitchen
+{
+	static Liquid create(Liquid x, Fruit fruit)
+	{
+		 x.setQuantity(x.getQuantity()+fruit.getWeight());
+		 x.setColor(fruit.getColor());
+		 x.setTaste(fruit.getTaste());
+		 return x;
+	}
+	
+	static Liquid create(Liquid x, Ice ice)
+	{
+		 x.setQuantity(x.getQuantity()+ice.getWeight());
+		 x.setTemperature(x.getTemperature()+ice.getTemperature());
+		 return x;
+	}
+}
+
+
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2786 and length is -36.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:494)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2025-01-09 12:44:57.748
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2786 and length is -36.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:494)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2025-01-09 12:44:57.749
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2786 and length is -36.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:494)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.core 4 4 2025-01-09 12:44:59.271
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+
+public class MethodChainingTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		/*
+		Liquid liquid1 = new Liquid(1,"Thin","White","LittleSour","SlightSweet",20.1f);
+		System.out.println("liquid taste : "+liquid1.getTaste());
+		System.out.println("liquid color : "+liquid1.getColor());
+		System.out.println("liquid temp  : "+liquid1.getTemperature());
+
+		Fruit fruit = new Fruit("Chickoo","Brown",0.150f,"Sweet");	
+		
+		Liquid liquid2 = Kitchen.create(liquid1, fruit);
+		
+		System.out.println("--- after adding Fruit ----");
+		System.out.println("liquid taste : "+liquid1.getTaste());
+		System.out.println("liquid color : "+liquid1.getColor());
+		System.out.println("liquid temp  : "+liquid1.getTemperature());
+
+		Ice ice = new Ice(-5.0f,"Bisleri","Cube",0.150f,4);
+		
+		Liquid liquid3 = Kitchen.create(liquid2, ice);
+		
+		System.out.println("--- after adding ice ----");
+
+		System.out.println("liquid taste : "+liquid1.getTaste());
+		System.out.println("liquid color : "+liquid1.getColor());
+		System.out.println("liquid temp  : "+liquid1.getTemperature());
+
+		System.out.println("--------------");
+		
+		System.out.println("liquid1 "+liquid1.hashCode());
+		System.out.println("liquid2 "+liquid2.hashCode());
+		System.out.println("liquid3 "+liquid3.hashCode());
+		*/
+		
+		/*
+		Liquid liquid1 = new Liquid(1,"Thin","White","LittleSour","SlightSweet",20.1f);
+		Fruit fruit = new Fruit("Chickoo","Brown",0.150f,"Sweet");	
+		Ice ice = new Ice(-5.0f,"Bisleri","Cube",0.150f,4);
+
+		System.out.println("color "+liquid1.getColor());
+		System.out.println("qty   "+liquid1.getQuantity());
+		System.out.println("temp  "+liquid1.getTemperature());
+
+		System.out.println("-------------");
+		
+		Liquid liquid2 = liquid1.make(fruit);
+		
+		System.out.println("color "+liquid1.getColor());
+		System.out.println("qty   "+liquid1.getQuantity());
+		System.out.println("temp  "+liquid1.getTemperature());
+		
+		System.out.println("-------------");
+		
+		Liquid liquid3 = liquid1.make(ice);
+
+		System.out.println("color "+liquid1.getColor());
+		System.out.println("qty   "+liquid1.getQuantity());
+		System.out.println("temp  "+liquid1.getTemperature());
+
+		System.out.println("-------------");
+		
+		System.out.println("liquid  "+liquid1);
+		System.out.println("liquid2 "+liquid2);
+		System.out.println("liquid3 "+liquid3);
+		*/
+		
+		Liquid liquid1 = new Liquid(1,"Thin","White","LittleSour","SlightSweet",20.1f);
+		Fruit fruit = new Fruit("Chickoo","Brown",0.150f,"Sweet");	
+		Ice ice = new Ice(-5.0f,"Bisleri","Cube",0.150f,4);
+
+		Liquid x = liquid1.addFruit(fruit).addIce(ice);
+		System.out.println("color "+x.getColor());
+		System.out.println("qty   "+x.getQuantity());
+		System.out.println("temp  "+x.getTemperature());
+
+		
+	}
+}
+class Talk
+{
+	String line;
+	
+	Talk(String l)
+	
+	Talk chatting(String str)
+	{
+		return new Talk();
+	}
+}
+
+class Liquid
+{
+	float  quantity;//weight
+	String density;//skin
+	String color;//eye
+	String taste;//tongue
+	String odour; //nose
+	float temperature;
+	
+	Liquid addFruit(Fruit fruit)
+	{
+		 setQuantity(getQuantity()+fruit.getWeight());
+		 setColor(fruit.getColor());
+		 setTaste(fruit.getTaste());
+		 return this;
+	}
+	
+	Liquid addIce(Ice ice)
+	{
+		 setQuantity(getQuantity()+ice.getWeight());
+		 setTemperature(getTemperature()+ice.getTemperature());
+		 return this;
+	}
+	
+	public Liquid(float quantity, String density, String color, String taste, String odour, float temp) {
+		super();
+		this.quantity = quantity;
+		this.density = density;
+		this.color = color;
+		this.taste = taste;
+		this.odour = odour;
+		this.temperature = temp;
+	}
+
+	public float getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(float quantity) {
+		this.quantity = quantity;
+	}
+
+	public String getDensity() {
+		return density;
+	}
+
+	public void setDensity(String density) {
+		this.density = density;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getTaste() {
+		return taste;
+	}
+
+	public void setTaste(String taste) {
+		this.taste = taste;
+	}
+
+	public String getOdour() {
+		return odour;
+	}
+
+	public void setOdour(String odour) {
+		this.odour = odour;
+	}
+
+	public float getTemperature() {
+		return temperature;
+	}
+
+	public void setTemperature(float temperature) {
+		this.temperature = temperature;
+	}
+
+	
+	
+	
+	
+}
+
+
+class Fruit
+{
+	String fruitName;
+	String color;
+	float weight;
+	String taste;
+	
+	public Fruit(String fruitName, String color, float weight, String taste) {
+		super();
+		this.fruitName = fruitName;
+		this.color = color;
+		this.weight = weight;
+		this.taste = taste;
+	}
+	public String getFruitName() {
+		return fruitName;
+	}
+	public void setFruitName(String fruitName) {
+		this.fruitName = fruitName;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public float getWeight() {
+		return weight;
+	}
+	public void setWeight(float weight) {
+		this.weight = weight;
+	}
+	public String getTaste() {
+		return taste;
+	}
+	public void setTaste(String taste) {
+		this.taste = taste;
+	}
+	
+	
+	
+}
+
+class Ice
+{
+	float temperature;
+	String waterType;
+	String shape;
+	float weight;
+	int quantity;
+	
+	public Ice(float temperature, String waterType, String shape, float weight, int quantity) {
+		super();
+		this.temperature = temperature;
+		this.waterType = waterType;
+		this.shape = shape;
+		this.weight = weight;
+		this.quantity = quantity;
+	}
+	
+	
+	
+	
+	public String getWaterType() {
+		return waterType;
+	}
+
+
+
+
+	public void setWaterType(String waterType) {
+		this.waterType = waterType;
+	}
+
+
+
+
+	public float getTemperature() {
+		return temperature;
+	}
+	public void setTemperature(float temperature) {
+		this.temperature = temperature;
+	}
+	public String getShape() {
+		return shape;
+	}
+	public void setShape(String shape) {
+		this.shape = shape;
+	}
+	public float getWeight() {
+		return weight;
+	}
+	public void setWeight(float weight) {
+		this.weight = weight;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
+	
+}
+
+class Kitchen
+{
+	static Liquid create(Liquid x, Fruit fruit)
+	{
+		 x.setQuantity(x.getQuantity()+fruit.getWeight());
+		 x.setColor(fruit.getColor());
+		 x.setTaste(fruit.getTaste());
+		 return x;
+	}
+	
+	static Liquid create(Liquid x, Ice ice)
+	{
+		 x.setQuantity(x.getQuantity()+ice.getWeight());
+		 x.setTemperature(x.getTemperature()+ice.getTemperature());
+		 return x;
+	}
+}
+
+
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2795 and length is -45.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:494)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2025-01-09 12:44:59.272
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2795 and length is -45.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:494)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2025-01-09 12:44:59.273
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException: startPos = 2795 and length is -45.
+This breaks the rule that lengths are not allowed to be negative. Affected Node:
+class org.eclipse.jdt.core.dom.Block: {
+}
+
+	at lombok.eclipse.agent.PatchDiagnostics.setSourceRangeCheck(PatchDiagnostics.java:36)
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:738)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:494)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
