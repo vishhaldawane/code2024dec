@@ -19,6 +19,7 @@ public class CuisineTest { //UserInterface
 		for(int i=0;i<numOfDishes;i++) {
 			String details = scan1.next(); // Noodles:Chinese:150:4.5
 			String dishArray[] = details.split(":");
+			//dishArray[]={"Noodles","Chinese","150","4.5"};
 			
 			String dishName = dishArray[0];
 			String cuisine = dishArray[1];
@@ -63,7 +64,7 @@ public class CuisineTest { //UserInterface
 	}
 
 }
-class Dish
+class Dish //Entity - Pojo - Bean - Component
 {
 	String dishName; //Noodles
 	String cuisine; //Chinese
@@ -137,13 +138,18 @@ class DishUtil
 	List<Dish> getDishesByCuisine(Stream <Dish>dishStream, String cuisine)
 	{
 		
-		return dishStream.filter( (d)->d.getCuisine().equals(cuisine) ).collect(Collectors.toList());
+		return dishStream.
+				filter( 
+						(d)->d.getCuisine().equals(cuisine) )
+				.collect(Collectors.toList());
 		//return null;
 	}
 	
 	List<Dish> getDishesByRating(List <Dish>dishList, double rating)
 	{
-		return dishList.stream().filter( (d)-> d.getRating() == rating).collect(Collectors.toList());
+		return dishList.stream().
+				filter( (d)-> d.getRating() == rating)
+				.collect(Collectors.toList());
 		
 		//return dishStream.filter( (d)->d.getCuisine().equals(cuisine) ).collect(Collectors.toList());
 		//return null;
@@ -151,10 +157,11 @@ class DishUtil
 	
 	List<Dish> getDishesByCuisineAndRating(List <Dish>dishList, String cuisine, double rating)
 	{
-		return dishList.stream().filter( (d)-> d.getCuisine().equals(cuisine) && d.getRating() == rating).collect(Collectors.toList());
-		
-		//return dishStream.filter( (d)->d.getCuisine().equals(cuisine) ).collect(Collectors.toList());
-		//return null;
+		return dishList.stream().
+				filter( 
+						(d)-> d.getCuisine().equals(cuisine) 
+						&& d.getRating() == rating)
+				.collect(Collectors.toList());	
 	}
 }
 

@@ -73,29 +73,30 @@ Mission : Clear M1 with 340 score
 		why		what		how
 		|		|		|
 		REASON  INFORMATION IMPLEMENTATION
-M  30 Java
-T  31 Java
-W   1 Holiday
-Th  2 Java
-F   3 Power Skill 0.25 Java
+
+  M  30 Java
+1 T  31 Java
+  W   1 Holiday
+2 Th  2 Java
+  F   3 Power Skill 0.25 Java
 ------------
-S   4 Solo Orientation
-Su  5 Holiday
+  S   4 Solo Orientation
+  Su  5 Holiday
 ------------
-M   6 Java
-T   7 Java
-W   8 Java
-Th  9 Java
-F  10 Advanced Java
+3 M   6 Java
+4 T   7 Java
+5 W   8 Java
+6 Th  9 Java
+7 F  10 Advanced Java
 ------------
-S  11 Generative AI
-Su 12
+  S  11 Generative AI
+  Su 12
 ------------
-M  13 Power Skills 0.25, Advanced Java
-T  14 Holiday - 
-W  15 Advanced Java
-Th 16 Advanced Java
-F  17 Advanced Java
+  M  13 Power Skills 0.25, Advanced Java
+  T  14 Holiday - 
+8 W  15 Advanced Java
+  Th 16 Advanced Java
+  F  17 Advanced Java
 -------------
 S  18 Agile Software Development
 Su 19 Holiday
@@ -435,21 +436,133 @@ class DriverManager
 
 
 
+-----------------------------------------------------
+
+	JDBC 
+
+	Java Database Connectivity
+
+
+*following diagram is not of inheritance
+
+1. decide the database [ mysql ]
+2. accordingly decide the driver to connect to it
+		download it from the net
+			mysql-connectorj-8.0.33.jar 
+
+	Java[f/e]		Driver		Database [b/e]
+	|						|	
+	String					varchar
+	float					int
+	int						char
+	byte
+	show
+	|						|
+	business logic				data storage +
+							data logic [ pl-sql]
+
+1. DriverManager	- load the driver
+		- registerDriver()
+
+2. DriverManager- connect to the database
+		- acquire the Connection
+		- getConnection()
+
+3. Create the desired statement
+		insert/update/delete/select
+		Statement [ select ]
+		PreparedStatement [ insert / update / delete ]
+		CallableStatement [ procedure / function ]
+
+4. execute the statement
+			executeQuery/executeUpdate
+5. process the result if any
 
 
 
 
 
+
+				  
+			  
+
+
+
+
+
+
+
+
+
+
+
+
+
+table pojo  pojoInterface  pojoInterfaceImpl
+	  1		2			3 [ repository ]
+
+
+
+1. table - db layer - dept
+		deptno dname loc
+		10     Acc   NY
+			..
+		emp, customer, ord, item, product
+
+product
+--------
+pid desc
+101 tomato
+102 onion
+103 potato
+
+
+price
+-----
+pid cost sdate    edate
+101 40   01-01-25   -
+101 50   01-11-24 31-12-24
+101 80   01-09-24 30-10-24
+
+
+2. Pojo - Entity - Component - bean - java class
+
+package com.vishal.entity;
+public class Department
+{
+	public Department() { } //no -arg
+	private int departmentNumber;
+	private String departmentName;
+	private String departmentLocation;
+		setter/getter;
 }
+						[ 1 Table - dept ]
+			Restaurant|	[ 2 Pojo/Entity  ]
+					|	Raw material
+					Kitchen [ 3 Repository ]
+					|  | Chef
+					|  |
+				------  |
+				|       |
+			Service Man [ 4 Service ]
+						|
+						|
+		OrderTaker [ 5 Controller ]
+		|
+ Sister Brother
+	Table <- MenuCard - [ 6 UI ] - Angular/React
+ You Mom Dad
 
 
+3. Repository 
+		it allows CRUD operation on the table
+		via the entities
 
+		DAO LAYER
 
+			data access object
 
-
-
-
-
-
-
+		Department d1 = new Department();
+		d1.setters 
+		let me store it (SAVE)
 

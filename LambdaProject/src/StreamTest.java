@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 /*
@@ -33,6 +34,8 @@ import java.util.stream.Stream;
  * }
  * 
  */
+
+
 //Stream = flow -- water input at your home
 
 // mainpipe --> water
@@ -58,7 +61,12 @@ import java.util.stream.Stream;
  	The objects stored in the collection/container
  	we need certain activities on it to perform
  	
+ 	select * from emp where empno > 5 order by empno
+ 	
  	1. filtering - (e)->e.empno>5
+ 	
+ 	select sum(sal) from emp;
+ 	
  	2. mapping of it - map((e)->e.salary).reduce(0.0,Double::sum)
  	3. changes/reduction 
  	4. rearrangement - sorting
@@ -111,7 +119,7 @@ class Marigold implements Flower
 class Garden
 {
 	static Flower get(String hint) {
-		Flower flower = null;
+		Flower flower = null;// it cannot be instantiated
 		if(hint.equalsIgnoreCase("valentine"))
 			flower = new Rose();
 		else if (hint.equalsIgnoreCase("diwali"))
@@ -121,8 +129,42 @@ class Garden
 		return flower;
 	}
 }
+/*
+interface Running
+{
+	void run(int hours, int mnts, int sec, float cal);
+}
+class Car implements Running
+{
+	public void run(int h, int m, int s, float c)
+	{
+		
+	}
+}*/
 
-class BankAccount { }
+class BankAccount { 
+	
+		void withdraw()
+		{
+			Running r = (a,b,c,d) -> { };
+		}
+	
+}
+
+
+
+
+
+
+
+
+
+	
+	 
+	
+
+
+
 class Executive extends Employee { }
 public class StreamTest {
 	public static void main(String[] args) {
@@ -133,14 +175,17 @@ public class StreamTest {
 		Employee staff[] =  {
 				new Employee(18,"Julie",5000),
 				new Employee(12,"Jane",6000),
-				new Employee(22,"Amit",7000),
-				new Employee(22,"Amit",7000),
+				new Employee(22,"Amit",8000),
+				new Employee(22,"Amit",9000),
 				new Employee(28,"Robert",4000),	
 				new Employee(36,"Robert",4000),	
 				new Employee(52,"Bharat",3000),	
 			//	new Executive()
 		};
-		
+//	ArrayList<Employee> empList = new ArrayList<Employee>();
+//	for(int i=0;i<staff.length;i++) {
+//		empList.add(staff[i]);
+//	}
 		//array is of limited size
 		//cannot grow or shrink
 		//can hold only one type value, or its children
@@ -154,11 +199,22 @@ public class StreamTest {
 		//		staff[1] = new Employee(103,"Raj",5000); 
 		//		staff[2] = new Employee(108,"Julie",8000); 
 				
+			// (x,y)->{ ln1; ln2; ln3; } 
 			
-			
-			
+			//converted the array into the stream
 			Stream<Employee> empStream = Stream.of(staff);
-			empStream.forEach(  emp->System.out.println(emp)  );
+			
+			//invoke the forEach of the stream 
+			//and expect a callback to your lambda function
+			Consumer c;
+			
+			empStream.forEach(  
+					emp1->
+					{
+						System.out.println(emp1) ;
+					}
+				
+			);
 		
 		
 		System.out.println("-------");
@@ -168,7 +224,12 @@ public class StreamTest {
 			empList.add(staff[i]);			
 		}
 	*/	
-		List<Employee> empList = Stream.of(staff).collect(Collectors.toList());
+		List<Employee> empList = 
+				Stream.of(staff)
+				.collect(Collectors.toList());
+		
+		
+		
 		long rows = empList.stream().count();
 		System.out.println("COUNT "+rows);
 		//	List<Employee> empList = empStream.collect(Collectors.toList());
@@ -178,8 +239,9 @@ public class StreamTest {
 		System.out.println("-----------");
 		
 		//intermediate list of emp's having empno>100 with ename start with J
-		List<Employee> emps = Stream.of(staff).
-				filter(e->e.empno>100 && e.empname.startsWith("J")).
+		List<Employee> emps = 
+				Stream.of(staff).
+				filter(e->e.empno>30 && e.empname.startsWith("J")).
 				collect(Collectors.toList());
 		
 		/*
@@ -197,7 +259,7 @@ public class StreamTest {
 
 		System.out.println("-----------");
 		double cost = Stream.of(staff).
-				filter(e->e.empno>102).
+				filter(e->e.empno>22).
 				map(e->e.salary).
 				reduce(0.0,Double::sum); //single row function
 		
@@ -233,26 +295,35 @@ public class StreamTest {
 			
 			
 			System.out.println("Sorted employees - by empno ");
-			Stream.of(staff).sorted(  (x,y) -> Integer.compare(y.empno, x.empno)  )		
+			Stream.of(staff)
+			.sorted(  (x,y) -> Integer.compare(y.empno, x.empno)  )		
 			.forEach(x->System.out.println(x));
 			
 			System.out.println("\nSorted employees - by empname ");
-			Stream.of(staff).sorted( (e1,e2) -> e1.empname.compareTo(e2.empname))		
+			Stream.of(staff)
+			.sorted( (e1,e2) -> e1.empname.compareTo(e2.empname))		
 			.forEach(x->System.out.println(x));
 			
 			System.out.println("\nSorted employees - by salary ");
-			Stream.of(staff).sorted( (e1,e2)-> Double.compare(e1.salary, e2.salary))		
+			Stream.of(staff)
+			.sorted( (e1,e2)-> Double.compare(e1.salary, e2.salary))		
 			.forEach(x->System.out.println(x));
 			
 			
-			Employee emp1  = Stream.of(staff).min( (e1,e2)->e1.empno-e2.empno   ).get();
+			Employee emp1  = 
+				Stream.of(staff).
+				min( (e1,e2)->e1.empno-e2.empno).get();
 			System.out.println("Emp with lowest empno : "+emp1);
 			
-			Employee emp2  = Stream.of(staff).max( (e1,e2)->e1.empno-e2.empno   ).get();
+			Employee emp2  = 
+				Stream.of(staff).
+				max( (e1,e2)->e1.empno-e2.empno).get();
 			System.out.println("Emp with highest empno : "+emp2);					
 		
 			System.out.println("-------distinct emp-----");
-			List<Employee> distEmp  = Stream.of(staff).distinct().collect(Collectors.toList());
+			List<Employee> distEmp  = 
+				Stream.of(staff).distinct().
+				collect(Collectors.toList());
 			
 			distEmp.forEach((e)->System.out.println(e));
 
@@ -282,24 +353,23 @@ public class StreamTest {
 			System.out.println("Container is empty...");
 		}
 		//Stream.of(staff).fil
-	
-			List<Employee> eList= MyUtility.getData(Stream.of(staff));
+		System.out.println("---------");
+	List<Employee> eList= 
+		MyUtility.getEmployeesEarningMoreThanGivenSalary( 
+				Stream.of(staff), 7000  );
+		eList.forEach(emp->System.out.println(emp.salary));
 	}
-	
-	
 }
-
-
 class MyUtility
 {
-	static List<Employee>  getData(Stream<Employee>  s) {
+	static List<Employee>  
+		getEmployeesEarningMoreThanGivenSalary(
+				Stream<Employee>  s, double salToCompare) 
+	{
 		List<Employee> empList ;
-		
-		empList = s.filter(e->(e.salary > 5000 )).collect(Collectors.toList());
-		
-		
-		return empList;
-		
+		empList = s.filter(e->(e.salary > salToCompare )).
+				collect(Collectors.toList());
+		return empList;		
 	}
 }
 
@@ -349,3 +419,39 @@ class Employee
 	
 	
 }
+
+
+
+
+/*
+ 	SQL
+	select deptno,job,sum(sal) from emp
+	where empno > 500 and job='SALESMAN'
+	group by deptno,job
+	having count(job) > 2
+	order by deptno
+	
+	Query query = new Query(dbms details/username/password);
+	
+query.select(deptno,job,sum(sal)).from("emp").
+where(empno>500).and(job='SALESMAN').
+groupBy(deptno,job).having(count(job)>2)).orderBy(detpno)
+	
+	
+ 
+ 
+ 
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
