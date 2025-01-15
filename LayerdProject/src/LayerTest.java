@@ -4,8 +4,60 @@ import java.util.List;
 public class LayerTest {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+	//	Person person = new Person();
+	//	person.withdraw(5000);
+		DepartmentServiceImpl deptService = new DepartmentServiceImpl();
 
+		try {
+			List<Department> deptList = deptService.getAllDepartments();
+			for(Department dept : deptList)
+			{
+				System.out.println("DEPTNO : "+dept.getDepartmentNumber());
+				System.out.println("DNAME  : "+dept.getDepartmentName());
+				System.out.println("LOC    : "+dept.getDepartmentLocation());
+				System.out.println("-------------");			
+			}
+			
+		} catch (EmptyDepartmentListException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		Department newDept = new Department();
+		newDept.setDepartmentNumber(50);
+		newDept.setDepartmentName("Test");
+		newDept.setDepartmentLocation("Mahape");
+		
+		try {
+			deptService.makeNewDepartment(newDept);
+		} catch (DepartmentAlreadyExistException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			List<Department> deptList = deptService.getAllDepartments();
+			for(Department dept : deptList)
+			{
+				System.out.println("DEPTNO : "+dept.getDepartmentNumber());
+				System.out.println("DNAME  : "+dept.getDepartmentName());
+				System.out.println("LOC    : "+dept.getDepartmentLocation());
+				System.out.println("-------------");			
+			}
+			
+		} catch (EmptyDepartmentListException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+
+		
+		// TODO Auto-generated method stub
+/*
 		List<Department> deptList;
 		
 		DepartmentDAOImpl deptDAOImpl = new DepartmentDAOImpl();
@@ -63,7 +115,7 @@ public class LayerTest {
 			System.out.println("DNAME  : "+deptFound.getDepartmentName());
 			System.out.println("LOC    : "+deptFound.getDepartmentLocation());
 			System.out.println("-------------");			
-		
+	*/	
 	}
 
 }
@@ -208,6 +260,183 @@ class DepartmentDAOImpl implements DepartmentDAO
 	}
 	
 }
+class DepartmentAlreadyExistException extends Exception
+{
+	DepartmentAlreadyExistException(String str) {
+		super(str);
+	}
+}
+class DepartmentNotFoundException extends RuntimeException
+{
+	DepartmentNotFoundException(String str) {
+		super(str);
+	}
+}
+class EmptyDepartmentListException extends Exception
+{
+	EmptyDepartmentListException(String str){
+		super(str);
+	}
+}
+/*------------ service layer begins ----------*/
+
+interface DepartmentService
+{
+	void makeNewDepartment(Department dept) throws DepartmentAlreadyExistException; //C
+	Department findSingleDepartment(int deptno) throws DepartmentNotFoundException;  //R
+	List<Department> getAllDepartments() throws EmptyDepartmentListException;     //RA
+	void modifyDepartment(Department dept) throws DepartmentNotFoundException; //U
+	void removeDepartment(int deptno) throws DepartmentNotFoundException;      //D
+}
+class DepartmentServiceImpl implements DepartmentService
+{
+	DepartmentDAOImpl deptDAO = new DepartmentDAOImpl();
+	
+	@Override
+	public void makeNewDepartment(Department dept) throws DepartmentAlreadyExistException {
+		System.out.println("makeNewDepartment() invoked...");
+		for(Department deptFound : deptDAO.readDepartments())
+		{
+			if(deptFound.getDepartmentNumber() 
+					== dept.getDepartmentNumber()) {
+				throw new DepartmentAlreadyExistException("This department already exists : "+dept.getDepartmentNumber());
+			}
+		}
+		deptDAO.createDepartment(dept);	
+	}
+
+	
+	
+	
+	
+	
+	
+	@Override
+	public Department findSingleDepartment(int deptno) throws DepartmentNotFoundException {
+		boolean found=false;
+		Department deptToReturn = null;
+		for(Department deptFound : deptDAO.readDepartments())
+		{
+			if(deptFound.getDepartmentNumber() 
+					== deptno) {
+				found =true;
+				deptToReturn = deptFound;
+				break;
+			}
+		}
+		if(found == true)
+			return deptToReturn;
+		else
+			throw new DepartmentNotFoundException("Department with thid id does not exist : "+deptno);
+	}
+
+	@Override
+	public List<Department> getAllDepartments() throws EmptyDepartmentListException {
+		// TODO Auto-generated method stub
+		if(deptDAO.readDepartments().size() > 0)
+			return deptDAO.readDepartments();
+		else
+			throw new EmptyDepartmentListException("Department list is empty...");
+	}
+	
+
+	@Override
+	public void modifyDepartment(Department dept) throws DepartmentNotFoundException {
+		// TODO Auto-generated method stub
+		boolean found=false;
+		for(Department deptFound : deptDAO.readDepartments())
+		{
+			if(deptFound.getDepartmentNumber() 
+					== dept.getDepartmentNumber()) {
+				deptDAO.updateDepartment(dept);
+				found = true;
+				break;
+			}
+		}		
+		if(found == false) {
+			throw new DepartmentNotFoundException("Department with thid id does not exist : "+dept.getDepartmentNumber());
+		}
+	}
+	
+
+	@Override
+	public void removeDepartment(int deptno) throws DepartmentNotFoundException {
+		// TODO Auto-generated method stub
+		boolean found=false;
+		for(Department deptFound : deptDAO.readDepartments())
+		{
+			if(deptFound.getDepartmentNumber() 
+					== deptno) {
+				deptDAO.deleteDepartment(deptno);
+				found = true;
+				break;
+			}
+		}		
+		if(found == false) {
+			throw new DepartmentNotFoundException("Department with thid id does not exist : "+deptno);
+		}
+	}
+	
+}
+/*---------------*/
+class SavingsAccount
+{
+	float balance;
+	
+	public SavingsAccount(float balance) {
+		super();
+		this.balance = balance;
+	}
+
+	void withdraw(float amt)
+	{
+		System.out.println("\t\t\tSelect query fired..");
+		System.out.println("\t\t\tSavingsAccount : withdraw(float)");
+		balance = balance  - amt;
+		System.out.println("\t\t\tUpdate query fired...");
+	}
+}
+class AtmServer
+{
+	SavingsAccount sa = new SavingsAccount(50000);
+	
+	void withdraw(float amt) {
+		System.out.println("\t\tAtmServer : withdraw(float)");
+		System.out.println("\t\tVerify the secured layer");
+		System.out.println("\t\tStart the transaction");
+		sa.withdraw(amt);
+		System.out.println("\t\tComplete the transaction");
+		System.out.println("\t\tRelease the secured layer");
+		
+	}
+}
+/*--------------------------------------*/
+class AtmClient
+{
+	AtmServer atmServer = new AtmServer();
+	
+	void withdraw(float amt) {
+		System.out.println("\tAtmClient : withdraw(float)");
+		System.out.println("\tAtmClient : Enter pin");
+		System.out.println("\tAtmClient : Select Account Type");
+		System.out.println("\tAtmClient : Do you want reciept?");
+		atmServer.withdraw(amt);
+		System.out.println("\tAtmClient : reciept is printed...");
+		System.out.println("\tAtmClient : card is unlocked");
+	}
+}
+class Person
+{
+	AtmClient atm = new AtmClient();
+	
+	void withdraw(float amt) {
+		System.out.println("Person : withdraw(float)");
+		System.out.println("Person : entering the atm...");
+		atm.withdraw(amt);
+		System.out.println("Person : exiting from the atm ...");
+	}
+}
+
 
 
 
