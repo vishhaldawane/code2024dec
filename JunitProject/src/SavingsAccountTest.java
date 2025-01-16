@@ -19,6 +19,10 @@ public class SavingsAccountTest {
 		}
 	}*/
 	
+	//aftereach
+	//beforeeach
+	//setup
+	
 	@Test
 	public void testWithdraw() 
 	{

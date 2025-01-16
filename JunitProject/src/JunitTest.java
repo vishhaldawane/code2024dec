@@ -7,15 +7,9 @@ import org.junit.jupiter.api.Assertions;
 
 //developer --> tester --> deployer -> client
 public class JunitTest {
-
-		
-		int ary[]= {10,20};
-		
-		
+	int ary[]= {10,20};
 	
-		
-		
-
+	
 		@Test
 		public void testCase1()
 		{
