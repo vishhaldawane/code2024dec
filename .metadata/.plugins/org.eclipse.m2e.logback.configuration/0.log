@@ -23,3 +23,6 @@
 2025-01-10 09:12:46,120 [Worker-16: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
 2025-01-15 11:13:14,586 [main] WARN  org.eclipse.jgit.util.FS_POSIX - null
 2025-01-15 11:13:17,818 [Worker-11: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2025-01-16 14:31:42,827 [main] WARN  org.eclipse.jgit.util.FS_POSIX - null
+2025-01-16 14:31:44,259 [Worker-20: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2025-01-16 14:31:44,310 [Worker-20: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
