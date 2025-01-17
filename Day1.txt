@@ -74,36 +74,44 @@ Mission : Clear M1 with 340 score
 		|		|		|
 		REASON  INFORMATION IMPLEMENTATION
 
-  M  30 Java
-1 T  31 Java
-  W   1 Holiday
-2 Th  2 Java
-  F   3 Power Skill 0.25 Java
+   M  30 Java
+1  T  31 Java
+   W   1 Holiday
+2  Th  2 Java
+   F   3 Power Skill 0.25 Java
 ------------
-  S   4 Solo Orientation
-  Su  5 Holiday
+   S   4 Solo Orientation
+   Su  5 Holiday
 ------------
-3 M   6 Java
-4 T   7 Java
-5 W   8 Java
-6 Th  9 Java
-7 F  10 Advanced Java
+3  M   6 Java
+4  T   7 Java
+5  W   8 Java
+6  Th  9 Java
+7  F  10 Advanced Java
 ------------
-  S  11 Generative AI
-  Su 12
+   S  11 Generative AI
+   Su 12
 ------------
-  M  13 Power Skills 0.25, Advanced Java
-  T  14 Holiday - 
-8 W  15 Advanced Java
-  Th 16 Advanced Java
-  F  17 Advanced Java
+   M  13 Power Skills 0.25, Advanced Java
+   T  14 Holiday - 
+8  W  15 Advanced Java
+9  Th 16 Advanced Java
+10 F  17 Advanced Java
 -------------
-S  18 Agile Software Development
-Su 19 Holiday
+S    18 Advanced Java 
+Su   19 Holiday
 -------------
-M  20 Advanced Java
-T  21 Power Skills - full day
-W  22 --- M1
+M    20 Power Skills - full day
+T	21 dbms
+W    22 dbms
+T    23 MOCK OF M1 + DEVOPS
+F    24 JDBC + JPA HIBERNATE
+Sat  25 GENERATIVE AI
+SUN  26 HOLIDAY
+M    27 M1
+T    28 JDBC + JPA HIBERNATE
+W    29 JDBC + JPA HIBERNATE
+T    30 POWER SKILL FULL DAY
 
 
 
@@ -565,4 +573,55 @@ public class Department
 		Department d1 = new Department();
 		d1.setters 
 		let me store it (SAVE)
+
+
+File Handling
+----------------
+
+		keyboard				monitor/printer
+		(reading)				(writing)
+		input				output
+		|					 |
+		+-->->-->>your java->->->->
+				application	
+					| |
+				+----+ |--------
+				| -----+	|	|
+				| |
+				file	ram  n/w
+java.io
+------------------------------------------------------
+  byte based				||     character based 
+  stream					||	stream
+  1 byte is a min unit or i/o || 2 bytes is a min unit 
+						||  of i/o
+-----------------------------------------------------
+InputStream	|OutputStream	||	Reader  |	 Writer
+	read()	|	write()	||	 read() |  write()
+------------------------------------------------------
+FileInputStream|FileOutputStr-||FileReader |FileWriter
+		     |am			||		   |PrintWriter
+			|			||		   |
+
+
+FileInputStream fin = new FileInputStream("abc.txt");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
