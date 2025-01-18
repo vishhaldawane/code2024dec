@@ -610,6 +610,69 @@ FileInputStream fin = new FileInputStream("abc.txt");
 
 
 
+------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	Flying					Landing
+	|fly();<--declared			|land(); <-- declaration
+	-------------------------------
+				|
+			    Flight
+				| void fly() { .... } <--definitions[mandatory]
+				| void land(){ .... } <--definitions[mandatory]
+				|
+	------------------------------------
+	|			|				|	
+	| Firing		| Transporting		|  Ticketing
+	|	|fire();	|  |transport();	|	| issueTickets();
+FlighterFlight    CargoFlight		CommercialFlight
+
+
+2nd implementation of Flying and Landing
+
+	Flying					Landing
+	|fly();<--declared			|land(); <-- declaration
+	-------------------------------
+				|
+			   Bird 
+				| void fly() { .... } <--definitions[mandatory]
+				| void land(){ .... } <--definitions[mandatory]
+				|
+	------------------------------------
+	|			|				|
+	| ?			| ?				| ?	
+	| |			| |				| |
+     Hen            Parrot		    Eagle
+
+
+3rd implementation of Flying and Landing
+
+	Flying					Landing
+	|fly();<--declared			|land(); <-- declaration
+	-------------------------------
+				|
+			  Insect 
+				| void fly() { .... } <--definitions[mandatory]
+				| void land(){ .... } <--definitions[mandatory]
+				|
+	------------------------------------
+	|			|				|
+	| ?			| ?				| ?	
+	| |			| |				| |
+     Bee            DragonFly		    Beetle
+
 
 
 
