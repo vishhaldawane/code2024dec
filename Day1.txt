@@ -98,20 +98,20 @@ Mission : Clear M1 with 340 score
 9  Th 16 Advanced Java
 10 F  17 Advanced Java
 -------------
-S    18 Advanced Java 
-Su   19 Holiday
+11 S  18 Advanced Java 
+   Su 19 Holiday
 -------------
-M    20 Power Skills - full day
-T	21 dbms
-W    22 dbms
-T    23 MOCK OF M1 + DEVOPS
-F    24 JDBC + JPA HIBERNATE
-Sat  25 GENERATIVE AI
-SUN  26 HOLIDAY
-M    27 M1
-T    28 JDBC + JPA HIBERNATE
-W    29 JDBC + JPA HIBERNATE
-T    30 POWER SKILL FULL DAY
+   M  20 Power Skills - full day
+12 T	 21 dbms
+   W     22 dbms
+   T     23 MOCK OF M1 + DEVOPS
+   F     24 JDBC + JPA HIBERNATE
+   S   25 GENERATIVE AI
+   S   26 HOLIDAY
+M     27 M1
+T     28 JDBC + JPA HIBERNATE
+W     29 JDBC + JPA HIBERNATE
+T     30 POWER SKILL FULL DAY
 
 
 

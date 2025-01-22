@@ -1,0 +1,184 @@
+
+Shree Yantra
+		       15
+			 /
+	4	9	2 ---> 15
+	
+	3	5	7 ---> 15
+
+	8	1	6 ---> 15
+	|	|	| \
+	15	15	15 15
+
+28 05 2002=19=10=1->driver
+||
+10
+1 -> driver
+
+Kua Number = K = 4+4 = 8
+
+11-4= 7
+
+	x	x	222
+
+	x	5	x
+
+	8	1	x
+
+Raja Yoga
+
+     /|
+	 |
+	 |
+
+		------
+			/
+		    /
+		   /
+            /
+            -----
+		---
+
+
+
+
+
+8BN
+
+e   | b
+-------
+s   | i
+95%   5%
+
+MINDSET
+
+					10-ACCOUNTING-NY
+					KING
+					7839
+					PRESIDENT product + services
+					5000
+					|
+	-------------------------------------------------
+	|				|				|
+10 ACCOUNTING-NY	20-RESEARCH-DALLAS		30-SALES-CHICAGO
+	|				|				|
+	7782				7566			------------------------------
+	CLARK			JONES		|	|	|	|	 |	    |
+	MANAGER			MANAGER     7698  7900  7499 7521  7654  7844   
+	2450				2975		 BLAKE  JAMES ALLEN WARD MARTIN TURNER      	|				|		MANAGER CLERK <------SALESMAN---->
+	7934			-----------	 2850    950  1600  1250 1250   1500
+	MILLER		|		|		          300   500 1400   0	
+	CLERK		7788		7902
+	1300			SCOTT	FORD
+				ANALYST	ANALYST
+				3000		3000
+				|		|
+				7876		7369
+				ADAMS	SMITH
+				CLERK	CLERK
+				1100		800
+
+
+EVERY SALESMAN FROM [EMP] TABLE HAS 			EMPNO
+				  |						 |
+			CUSTOMER						 |
+				|custid,name,address,city,zip,repid
+				|
+		      PLACES THE [ORD]ER
+					     | ordid,orddate,commpan,custid,shipdt,total
+						|  |
+			EACH ORDER HAS [ITEM] DETAILS
+						|  |
+						|ordid,itemid,prodid,qty,actuprice,itemtotal
+						|	          |
+			         EACH ITEM HAS [PRODUCT] DETAILS
+	
+
+
+QUERY WITHIN QUERY [ NESTED QUERIES ]
+
+	QUERY1 ( QUERY2 ( QUERY3 ( QUERY4 ( QUERY 5 ) ) ) )
+
+	SELECT * FROM EMP
+	WHERE DEPTNO = ( SELECT DEPTNO FROM DEPT 
+				  WHERE DNAME='SALES') ;
+
+
+	SELECT CUSTID,NAME,AREA FROM CUSTOMER
+     WHERE REPID = ( SELECT EMPNO FROM EMP 
+				 WHERE ENAME='WARD')    AND NAME='SHAPE UP';
+
+	SELECT CUSTID,NAME,AREA FROM CUSTOMER
+     WHERE NAME='SHAPE UP' AND REPID = ( SELECT EMPNO FROM EMP 
+				 WHERE ENAME='WARD')    ;
+
+	SELECT * FROM ORD 
+	WHERE CUSTID = (SELECT CUSTID FROM CUSTOMER
+     			  WHERE NAME='SHAPE UP' 
+					AND REPID = ( SELECT EMPNO FROM EMP 
+				 				WHERE ENAME='WARD') 
+			      );
+
+	SELECT * FROM ORD 
+	WHERE CUSTID = (SELECT CUSTID FROM CUSTOMER
+				 WHERE REPID = ( SELECT EMPNO FROM EMP 
+				 				WHERE ENAME='WARD') 
+			      );
+
+	SELECT * FROM ORD 
+	WHERE CUSTID IN (SELECT CUSTID FROM CUSTOMER 
+				  WHERE REPID = ( SELECT EMPNO FROM EMP 
+					WHERE ENAME='TURNER'));
+	
+
+SELECT * FROM ITEM
+WHERE ORDID IN ( SELECT ORDID FROM ORD 
+			  WHERE CUSTID IN (SELECT CUSTID FROM CUSTOMER 
+				  		    WHERE REPID=(SELECT EMPNO FROM EMP
+									  WHERE ENAME='TURNER')));
+	
+SELECT * FROM PRODUCT
+WHERE 
+PRODID IN (SELECT PRODID FROM ITEM
+	      WHERE 
+		 ORDID IN ( SELECT ORDID FROM ORD 
+			  	  WHERE 
+				  CUSTID IN (SELECT CUSTID FROM CUSTOMER 
+				  		   WHERE 
+						   REPID=(SELECT EMPNO FROM EMP
+								WHERE ENAME='TURNER'))));
+
+SELECT * FROM PRODUCT
+WHERE 
+PRODID IN (SELECT PRODID FROM ITEM
+	      WHERE 
+		 ORDID IN ( SELECT ORDID FROM ORD 
+			  	  WHERE 
+				  CUSTID IN (SELECT CUSTID FROM CUSTOMER 
+				  		   WHERE 
+						   REPID=(SELECT EMPNO FROM EMP
+								WHERE ENAME='TURNER')
+						   )
+				)
+		);
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
