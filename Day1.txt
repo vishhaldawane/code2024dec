@@ -458,6 +458,9 @@ class DriverManager
 		download it from the net
 			mysql-connectorj-8.0.33.jar 
 
+application development:wq
+
+	|
 	Java[f/e]		Driver		Database [b/e]
 	|						|	
 	String					varchar
