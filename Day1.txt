@@ -490,7 +490,24 @@ application development:wq
 5. process the result if any
 
 
+1. jdbc is a manual way to work with the 
+		java and database activities
 
+2. automated way - hibernate JPA
+		[ no need to write the queries ]
+
+	SavingsAccount sa = new SavingsAccount();
+	sa.setters... to fill up the details
+
+	jpa-> persist() / save()
+		jpa will create the insert query
+		and run as well
+
+
+3. Spring JPA
+
+	@Autowired
+	SavingsAccounts sa;
 
 
 
@@ -675,6 +692,18 @@ FlighterFlight    CargoFlight		CommercialFlight
 	| ?			| ?				| ?	
 	| |			| |				| |
      Bee            DragonFly		    Beetle
+
+----------------
+
+select * from emp where job='SALESMAN';
+
+
+SelectWhereTest.java
+
+entity-> Employee 
+	    structure of the emp table is considered
+		while designing the Employee class
+
 
 
 
