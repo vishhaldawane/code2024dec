@@ -1,5 +1,5 @@
 
-public class Test {
+public class Testing {
 	public static void main(String[] args) {
 		StrawberriesGardenFactory sgf = Mahabaleshwar.createStrawberriesGardenFactory();
 		StrawberriesGarden sg = sgf.createStrawberriesGarden("khatte");

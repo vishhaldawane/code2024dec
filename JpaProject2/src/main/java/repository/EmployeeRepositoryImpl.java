@@ -7,49 +7,33 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import entity.Employee;
 
-public class EmployeeRepositoryImpl implements EmployeeRepository {
+public class EmployeeRepositoryImpl extends BaseRepository<Employee> implements EmployeeRepository {
 
-	EntityManager entityManager; //global handle
-	
-	EmployeeRepositoryImpl(){
-		EntityManagerFactory factory = 
-				Persistence.createEntityManagerFactory("MyJPA");
-		entityManager = factory.createEntityManager();	
+	public EmployeeRepositoryImpl(){
+			
 	}
 	
 	public void insertEmployee(Employee e) {
-		EntityTransaction trans = entityManager.getTransaction();
-		trans.begin();
-			entityManager.persist(e);
-		trans.commit();
+		super.save(e);
 	}
 
 	public void updateEmployee(Employee e) {
-		EntityTransaction trans = entityManager.getTransaction();
-		trans.begin();
-			entityManager.merge(e);
-		trans.commit();
+		super.merge(e);
 	}
 
 	public void deleteEmployee(int empno) {
-		EntityTransaction trans = entityManager.getTransaction();
-		trans.begin();
-			Employee emp = entityManager.find(Employee.class,empno);
-			entityManager.remove(emp);
-		trans.commit();
+		super.delete(empno);
 	}
 
 	public Employee selectEmployee(int empno) {
-		
-		return entityManager.find(Employee.class, empno);
+		return super.find(empno);
 	}
 
-	public List<Employee> selectEmployees() {
-		Query query = entityManager.createQuery("from Employee", Employee.class);
-		return query.getResultList();
+	public List<Employee> selectEmployees() {		//jpql
+		return super.findAll("Employee");
 	}
-
 }

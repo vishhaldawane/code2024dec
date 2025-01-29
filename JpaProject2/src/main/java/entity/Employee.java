@@ -13,9 +13,29 @@ import javax.persistence.Table;
  * 4. setters and getters
  * */
 
+//One Employee one Passport
+//One Employee one AdhaarCard
+
+// One Department has Many Employees
+// Many Employees to One Department
+
+// One Customer  One  Subscription
+//    Shweta           Book
+
+// One Customer  Many Subscriptions
+//	  Shweta			Book, CDs
+
+// One  Subscription One Customer
+//			Book			Shweta
+
+// Many Subscriptions One Customer
+//		Book CDs			Shweta
+
+// Many Subscriptions Many Customers
+//		Book CDs			Shweta Seema Sakshi
 @Entity
 @Table(name="emp")
-public class Employee {
+public class Employee { //Employee has Address Or Addresses
 	
 	@Id
 	@Column(name="empno") //emp_no
