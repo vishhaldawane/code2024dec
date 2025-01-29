@@ -1,5 +1,6 @@
 package repository;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,7 +11,7 @@ import javax.persistence.TypedQuery;
 
 import entity.Employee;
 
-public class BaseRepository<T> {
+public class BaseRepository {
 
 	EntityManager entityManager; //global handle
 	
@@ -20,34 +21,39 @@ public class BaseRepository<T> {
 		entityManager = factory.createEntityManager();
 	}
 	
-	public  void save(T e)
+	public  void save(Object e)
 	{
 		EntityTransaction trans = entityManager.getTransaction();
 		trans.begin();
 			entityManager.persist(e);
 		trans.commit();
 	}
-	public void merge(T e) {
+	public void merge(Object e) {
 		EntityTransaction trans = entityManager.getTransaction();
 		trans.begin();
 			entityManager.merge(e);
 		trans.commit();
 	}
-	public void delete(int x) {
+	
+	
+	
+	public <E> void delete(Class<E> classname, int x) {
 		EntityTransaction trans = entityManager.getTransaction();
 		trans.begin();
-			T t = (T) entityManager.find(, x);
-			entityManager.remove(t);
+			E e = entityManager.find(classname, x);
+			entityManager.remove(e);
 		trans.commit();
 	}
-	public T find (int x) {
-		return entityManager.find(Employee.class, x);
-	}
 	
-	public List<T> findAll(String table) {
-		TypedQuery<Employee> query = 
-				entityManager.createQuery("from "+table,
-						Employee.class);
+	public <E> E find(Class<E> classname, Serializable pk) {
+		E e = entityManager.find(classname, pk);
+		return e;
+	}
+
+	
+	public <E> List<E> findAll(Class<E> classname, String table) {
+		TypedQuery<E> query = 
+				entityManager.createQuery("from "+table,classname);
 			return query.getResultList();
 	}
 }
