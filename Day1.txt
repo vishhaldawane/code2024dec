@@ -708,6 +708,184 @@ entity-> Employee
 
 
 
+1. jdbc - you have to write the 
+		jdbc code manually
+
+		Java ----jdbc-code--> Database
+			1. load the driver, connect
+			2. make the statement
+			3. fire the query
+			4. process the result if any
+
+OOAD
+
+"	Design PATTERN
+		23 patterns "
+
+DAO design pattern
+
+	1	 2		3
+	Dept, DeptDAO, DeptDAOImpl
+	Emp   EmpDAO	EmpDAOImpl
+	Cust  CustDAO	CustDAOImpl
+	..
+	..
+	..
+
+	pojo  poji     pojiimpl
+	|	   |			|
+	fields CRUD	CRUD developed
+	as per		"insert into" dept "values.."
+	the 			"select * from" 
+	table
+
+	Dept d = new Dept()
+	fillup the d with setters
+
+	and invoke the method of PojiImpl
+
+	DeptDAO dao = new DeptDAOImpl();
+	dao.insertDepartment(d);
+
+	pojo			table
+	Department --> dept
+
+hibernate
+	Department - Department.hbm.xml
+				SessionFactory
+				Session
+				|
+			save  get update delete
+
+
+
+		insert into ? values ????
+
+	Maven Project
+		|
+	-------------------------
+	|		|		|
+	src
+	|
+----------------
+|			|
+entity		resources
+|@Entity			|
+Department	META-INF
+|@Id			|
+|			|
+JpaTest		|
+|			persistence.xml <-- settings
+EntityManager
+	|
+	persist
+	find
+	merge
+	remove
+
+
+			 storing the data
+			 of an object
+				|
+	-----------------------------
+		|				|
+		file				database
+		|				|
+	serialization			persistence
+						| ORM
+						Hibernate/JPA
+
+	Object  relational Mapping
+	|		|
+	java		database
+
+
+
+class Department <--- Entity/Pojo
+{
+	int departmentNumber; <--field
+	String departmentName;
+	String departmentLocation;
+
+}
+
+Department deptObj = new Department();
+deptObj.settters are invoked...
+
+1. jdbc code written by the developer
+2. jdbc hidden inside dao by the developer
+3. jpa, jdbc code written by the FRAMEWORK
+4. spring jpa
+===========================================
+			dept <-- table
+			-----
+	deptno	dname	loc <-- columns
+	10		Acc		NY
+	20		Research	NJ <-- rows
+
+
+
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. hibernate / JPA
+
+
+	Java Program			Database
+	|
+1. Pojo
+	i)make the pojo
+	as an Entity-> javax.persistence.Entity
+
+jar1 	jar2 	jar3 	jar4
+sugar	maida     corn		salt
+powder					
+
+
+	@Entity <-- class level annotation
+	class Department {
+
+		@Id <-- field level annotation
+		private int departmentNumber;
+	}
+
+	ii) declare the
+	primary key of
+	that entity
+
+2. META-INF/persistence.xml
+		7 settings
+	4) driver,url, username, password
+	3) dialect, show sql, hbm2ddl=update
+
+3. EntityManagerFactory
+   EntityManager
+   EntityTransaction
+	
+
+
+
+
+
+
 
 
 
