@@ -28,15 +28,14 @@ public class BaseRepository {
 			entityManager.persist(e);
 		trans.commit();
 	}
+	
 	public void merge(Object e) {
 		EntityTransaction trans = entityManager.getTransaction();
 		trans.begin();
 			entityManager.merge(e);
 		trans.commit();
 	}
-	
-	
-	
+		
 	public <E> void delete(Class<E> classname, int x) {
 		EntityTransaction trans = entityManager.getTransaction();
 		trans.begin();
