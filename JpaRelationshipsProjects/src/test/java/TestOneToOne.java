@@ -80,9 +80,6 @@ public class TestOneToOne {
 		System.out.println("Passport Issued : "+passport.getIssuedBy());
 		System.out.println("Passport Date   : "+passport.getIssuedDate());
 		System.out.println("Passport Person : "+passport.getPerson().getName());
-				
-		
-		
 	}
 	
 	@Test
@@ -103,10 +100,6 @@ public class TestOneToOne {
 		System.out.println("Person Name     : "+person.getName());
 		System.out.println("Passport Issued : "+person.getPassport().getPerson());
 		System.out.println("------------");
-		
-				
-		
-		
 	}
 	
 }
