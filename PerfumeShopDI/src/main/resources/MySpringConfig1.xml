@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop">
+  
+ 
+   <!-- Perfume beans --> 
+ 
+       <bean id="fahrenheit" class="com.vishal.perfumes.Perfume">
+      	
+      		<constructor-arg name="perfumeId" value="1010"></constructor-arg>
+      		<constructor-arg name="perfumeName" value="Christian Dior Fahrenheit"></constructor-arg>
+      		<constructor-arg name="fragrance" ref="cdf"></constructor-arg>
+      		<constructor-arg name="price" value="12000"></constructor-arg>
+      		
+      </bean>
+       
+        <bean id="chanel" class="com.vishal.perfumes.Perfume">
+      	
+      		<constructor-arg name="perfumeId" value="1020"></constructor-arg>
+      		<constructor-arg name="perfumeName" value="Blu Da Chanel"></constructor-arg>
+      		<constructor-arg name="fragrance" ref="bdc"></constructor-arg>
+      		
+      		<constructor-arg name="price" value="18000"></constructor-arg>
+      		
+      </bean>
+     
+     <bean id="oud" class="com.vishal.perfumes.Perfume">
+      	
+      		<constructor-arg name="perfumeId"   value="1030"></constructor-arg>
+      		<constructor-arg name="perfumeName" value="Supremacy In Oud"></constructor-arg>
+      		<constructor-arg name="fragrance"   ref="sio"></constructor-arg>
+      		<constructor-arg name="price"       value="15000"></constructor-arg>
+      		
+      </bean>
+  
+  
+  
+  
+  <!-- Fragrance beans --> 
+  	<bean id="cdf" class="com.vishal.perfumes.Fragrance">
+  			<constructor-arg name="topNote" value="Citrus Lemon"></constructor-arg>
+      		<constructor-arg name="middleNote" value="Nutmg Cinnamon"></constructor-arg>
+      		<constructor-arg name="baseNote" value="Woody Leather"></constructor-arg>
+  	</bean>
+  	
+  	<bean id="sio" class="com.vishal.perfumes.Fragrance">
+  			<constructor-arg name="topNote" value="Lavendor"></constructor-arg>
+      		<constructor-arg name="middleNote" value="Saffron"></constructor-arg>
+      		<constructor-arg name="baseNote" value="Amber"></constructor-arg>
+      	
+  	</bean>
+  	
+  	<bean id="bdc" class="com.vishal.perfumes.Fragrance">
+  			<constructor-arg name="topNote" value="Lemon"></constructor-arg>
+      		<constructor-arg name="middleNote" value="Ginger"></constructor-arg>
+      		<constructor-arg name="baseNote" value="Sandlewood"></constructor-arg>
+      	
+  	</bean>
+  	
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -884,9 +884,10 @@ powder
 
 PK- unique + nn
 |
-dept <-- parent
+1	2	  3		4
+dept dname  loc		<-- parent
 ------
-10 Acc
+10   Acc	  NY		x
 20
 30
 40
@@ -896,7 +897,7 @@ dept <-- parent
 emp	<--child						|
 ----								FK-null-duplicate
 empno	ename	...		...		deptno/dno/abc/xyz
-1010		..						50
+1010		..						10
 1020		..						10
 1030		..						10
 1040		.						NULL <--null
@@ -907,14 +908,25 @@ class Department
 {
 	@Id
 	@Column(name="deptno")
-	int departNumber;
+1	int departNumber;
+2	String departmentName;
+3	String departmentLocation;
+
+4	@OneToMany(mappedBy="department")
+	List<Employee>  employees = new ArrayList<Employee>();
 }
 
 @Entity
-class Employee
-{
+class Employee{
 	@Id
 	@Column(name="empno");
+1	eno
+2	ename
+3	job
+
+	@ManyToOne
+4	@JoinColumn(name="dno");
+	Deaprtment department;
 }
 
 
@@ -946,6 +958,135 @@ ALTER TABLE DEPT5  DROP COLUMN LOC;
 
 
 
+
+
+Department dept = new Department(70,'Test','ghansoli');
+
+Employee e1 = new Employee(111,'jacky',5555);
+Employee e2 = new Employee(111,'jacky',5555,dept);
+Employee e3 = new Employee(111,'jacky',5555,dept);
+
+persist(dept);
+
+
+
+
+
+
+============================
+
+1. create a maven project
+
+2. modify the pom.xml as per the dependencies requirement
+
+3. right click on the project
+		-> java build path
+		-> Libraries
+		-> JRE System Library 1.5 --> Edit -> Java 17/19/21
+		
+4. right click on the project
+		-> maven
+		-> update project
+		-> force update
+
+
+create table Passport 
+(issuedBy varchar(255), 
+issuedDate date, 
+person_id bigint not null, 
+primary key (person_id)) engine=MyISAM
+
+	pass
+Hibernate: 
+create table Person 
+(id bigint not null, 
+name varchar(255), 
+primary key (id)) engine=MyISAM
+
+	id	name
+	1	jim
+	2	jane
+	3	jack
+	
+Hibernate: 
+alter table Passport 
+add constraint FKbn4ik956giujpfuboelv614q9 
+foreign key (person_id) references Person (id)
+
+Entity Manager Factory created
+Hibernate: 
+
+select 
+person0_.id as id1_1_0_, 
+person0_.name as name2_1_0_, 
+
+passport1_.passportNumber as passport1_0_1_, 
+passport1_.issuedBy as issuedBy2_0_1_, 
+passport1_.issuedDate as issuedDa3_0_1_, 
+passport1_.person_id as person_i4_0_1_ 
+
+from Person person0_ 
+left outer join Passport passport1_ 
+on person0_.id=passport1_.person_id 
+where person0_.id=?
+
+
+
+
+letter.txt
+----------
+Hello Dad,
+
+I am at Navi Mumbai.
+I am totally good here at my new job.
+It has lot of excitement and challenges.
+I am developing my mind to face it.
+Your blessings has always pushed me
+to the next level.
+
+Yours
+Reeta
+------------------
+
+
+letter.xml
+------------
+1 letter-to-dad
+	2 greeting
+	2 main-content
+		2.1 location
+		2.1 job
+			2.1.1 status
+			2.1.2 challenges
+			2.1.3 pd
+		2.2 blessings
+
+<letter-to-dad>
+	<greeting>
+		Hello Dad
+	</greeting>
+
+	<main-content>
+		<location>	
+			I am at Navi Mumbai
+		</location>
+		<job>
+			<status>
+				I am totally good at my new job
+			</status>			
+			<challenges>
+				It has excitement and new challenges
+			</challenges>
+			<pd>
+				I am developing my mind here using tekstac
+			</pd>
+		</job>
+		<blessings>
+			your blessings made me stronger
+		</blessings>
+	</main-content>
+
+</letter-to-dad>
 
 
 
