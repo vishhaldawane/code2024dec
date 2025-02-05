@@ -46,6 +46,12 @@ public class Perfume {
 		return "Perfume [perfumeId=" + perfumeId + ", perfumeName=" + perfumeName + ", fragrance=" + fragrance
 				+ ", price=" + price + "]";
 	}
+	public Fragrance getFragrance() {
+		return fragrance;
+	}
+	public void setFragrance(Fragrance fragrance) {
+		this.fragrance = fragrance;
+	}
 	
 	
 	

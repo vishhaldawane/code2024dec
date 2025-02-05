@@ -5,11 +5,13 @@ import java.util.List;
 public class PerfumeShop {
 	
 	private int shopId;
+	private String shopName;
 	List<Perfume> listOfPerfumes;//hasA
 	
-	public PerfumeShop(int shopId, List<Perfume> listOfPerfumes) {
+	public PerfumeShop(int shopId, String shopName, List<Perfume> listOfPerfumes) {
 		super();
 		this.shopId = shopId;
+		this.shopName = shopName;
 		this.listOfPerfumes = listOfPerfumes;
 	}
 
@@ -27,6 +29,19 @@ public class PerfumeShop {
 
 	public void setListOfPerfumes(List<Perfume> listOfPerfumes) {
 		this.listOfPerfumes = listOfPerfumes;
+	}
+
+	public String getShopName() {
+		return shopName;
+	}
+
+	public void setShopName(String shopName) {
+		this.shopName = shopName;
+	}
+
+	@Override
+	public String toString() {
+		return "PerfumeShop [shopId=" + shopId + ", shopName=" + shopName + ", listOfPerfumes=" + listOfPerfumes + "]";
 	}
 	
 	

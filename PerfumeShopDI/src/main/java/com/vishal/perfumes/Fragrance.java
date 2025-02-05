@@ -15,6 +15,24 @@ public class Fragrance {
 	public String toString() {
 		return "Fragrance [topNote=" + topNote + ", middleNote=" + middleNote + ", baseNote=" + baseNote + "]";
 	}
+	public String getTopNote() {
+		return topNote;
+	}
+	public void setTopNote(String topNote) {
+		this.topNote = topNote;
+	}
+	public String getMiddleNote() {
+		return middleNote;
+	}
+	public void setMiddleNote(String middleNote) {
+		this.middleNote = middleNote;
+	}
+	public String getBaseNote() {
+		return baseNote;
+	}
+	public void setBaseNote(String baseNote) {
+		this.baseNote = baseNote;
+	}
 	
 	
 	

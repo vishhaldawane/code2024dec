@@ -12,6 +12,20 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop">
   
+  
+   <bean id="ps" class="com.vishal.perfumes.PerfumeShop">
+      	
+      		<constructor-arg name="shopId" value="999"></constructor-arg>
+      		<constructor-arg name="shopName" value="PerfumeDaShop"></constructor-arg>
+      		<constructor-arg> 
+      			<list>
+      				<ref bean="fahrenheit"/>
+      				<ref bean="chanel"/>
+      				<ref bean="oud"/>
+      			</list>
+      		</constructor-arg>
+      		   		
+      </bean>
  
    <!-- Perfume beans --> 
  
@@ -53,6 +67,13 @@
       		<constructor-arg name="baseNote" value="Woody Leather"></constructor-arg>
   	</bean>
   	
+  	<bean id="bdc" class="com.vishal.perfumes.Fragrance">
+  			<constructor-arg name="topNote" value="Lemon"></constructor-arg>
+      		<constructor-arg name="middleNote" value="Ginger"></constructor-arg>
+      		<constructor-arg name="baseNote" value="Sandlewood"></constructor-arg>
+      	
+  	</bean>
+  	
   	<bean id="sio" class="com.vishal.perfumes.Fragrance">
   			<constructor-arg name="topNote" value="Lavendor"></constructor-arg>
       		<constructor-arg name="middleNote" value="Saffron"></constructor-arg>
@@ -60,12 +81,7 @@
       	
   	</bean>
   	
-  	<bean id="bdc" class="com.vishal.perfumes.Fragrance">
-  			<constructor-arg name="topNote" value="Lemon"></constructor-arg>
-      		<constructor-arg name="middleNote" value="Ginger"></constructor-arg>
-      		<constructor-arg name="baseNote" value="Sandlewood"></constructor-arg>
-      	
-  	</bean>
+  	
   	
 </beans>
 
