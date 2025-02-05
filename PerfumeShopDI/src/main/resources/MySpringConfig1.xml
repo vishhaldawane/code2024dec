@@ -26,10 +26,9 @@
       		</constructor-arg>
       		   		
       </bean>
- 
    <!-- Perfume beans --> 
  
-       <bean id="fahrenheit" class="com.vishal.perfumes.Perfume">
+       <bean id="fahrenheit" class="com.vishal.perfumes.Perfume" scope="prototype">
       	
       		<constructor-arg name="perfumeId" value="1010"></constructor-arg>
       		<constructor-arg name="perfumeName" value="Christian Dior Fahrenheit"></constructor-arg>
