@@ -1,4 +1,29 @@
+import controller.PizzaController;
 
+/*
+ in layer architecture
+ 
+ the project is split into multiple packages
+ for the scalability and simplicity
+ 
+ WHY --> to isolate different concerns of 
+ the applications
+ 
+ 1. entity layer - for holding pojos represent the
+ 						data of the tables
+      |plain old java object
+      |it is also known as entity to hold
+      |data of the table to represent
+      | 
+ 2. dao or repository layer - for DB activities
+     |
+ 3. service layer for writing business logic
+ 	  |
+ 4. controller layer - to communicate with the
+ 		the UI and service
+ 		
+ * 
+ */
 public class LayerTest2 {
 	public static void main(String[] args) {
 		Customer customer = new Customer();
@@ -7,43 +32,11 @@ public class LayerTest2 {
 }
 class Customer
 {
-	Controller controller = new Controller();
+	PizzaController controller = new PizzaController();
 	
 	void placeOrder() {
 		System.out.println("Customer placing order...");
 		controller.takeOrder();
 	}
 }
-class Controller
-{
-	Service service = new Service();
-	
-	void takeOrder() {
-		System.out.println("\tController taking order...");
-		service.serveToTheCustomer();
-	}
-}
-class Service
-{
-	Repository repo = new Repository();
-	
-	void serveToTheCustomer() {
-		System.out.println("\t\tService is serving to the customer....");
-		repo.prepareFood();
-	}
-}
-class Repository
-{
-	Entity entity = new Entity();
-	
-	void prepareFood() {
-		System.out.println("\t\t\tRepository is preparing food for the customer...");
-		entity.actualFood();
-	}
-}
-class Entity
-{
-	void actualFood() {
-		System.out.println("\t\t\t\tThis is the actual food.....");
-	}
-}
+

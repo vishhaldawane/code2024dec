@@ -14,9 +14,7 @@ import com.vishal.entity.Employee;
 
 @Repository("impl1")
 public class EmployeeRepositoryImpl1 implements EmployeeRepository {
-
-	EntityManager manager; //null
-	
+	EntityManager manager; //null	
 	EmployeeRepositoryImpl1() {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("MyJPA"); 
 		manager = factory.createEntityManager();

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.vishal.entity.Employee;
 
 @Repository
-public interface EmployeeRepository {
-
+public interface EmployeeRepository// extends CrudRepository
+{
 	List<Employee> getEmployees(); 
 }
