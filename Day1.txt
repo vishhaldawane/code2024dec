@@ -1087,11 +1087,37 @@ CakeComponent
 	Add Cake <-- button
 
 
+DB 	  - normalization
+
+entity - ensure the relationships for thier correctness
+
+repo
+	CakeRepo - 5 
+	. . .
+		repo testing - 20 testcases
+service
+		service testing
+			
+controller
+		postman
+
+UI
+ Angular
+		jasmine/karma
 
 
 
+GET - for retrieving the object(s)
+	@GetMapping
 
+POST - for adding the object
+	@PostMapping
 
+PUT - for modifying/updating the object
+	@PutMapping
+
+DELETE - for deleting the object
+	@DeleteMapping
 
 
 

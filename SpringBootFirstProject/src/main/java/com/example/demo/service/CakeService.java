@@ -19,4 +19,8 @@ public interface CakeService {
 	
 	List<Cake> getAllCakes();//unconditional return
 	
+	Cake addCake(Cake cake);
+	Cake updateCake(Cake cake);
+	void deleteCake(Cake cake);
+	void deleteCakeById(int cakeId);
 }

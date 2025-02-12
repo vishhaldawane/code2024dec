@@ -16,6 +16,21 @@ public class CakeServiceImpl implements CakeService {
 	@Autowired
 	CakeRepository cakeRepo;
 	
+	public Cake addCake(Cake cake) {
+		return cakeRepo.save(cake);
+	}
+	
+	public Cake updateCake(Cake cake) {
+		return cakeRepo.save(cake);
+	}
+	
+	public void deleteCake(Cake cake) {
+		cakeRepo.delete(cake);
+	}
+	public void deleteCakeById(int cakeId) {
+		cakeRepo.deleteById(cakeId);
+	}
+	
 	public List<Cake> getAllCakes() {
 		List<Cake> cakeList = new ArrayList<Cake>();
 		 cakeRepo.findAll().forEach(cakeList::add); 
