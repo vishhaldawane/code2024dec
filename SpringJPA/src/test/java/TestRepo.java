@@ -4,26 +4,27 @@ import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.vishal.entity.Employee;
 import com.vishal.repo.EmployeeJpaRepository;
 import com.vishal.service.EmployeeService;
 
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(locations = {"/MySpringConfig1.xml"}) 
 public class TestRepo {
 
-
-	ApplicationContext context;
+	@Autowired
+	EmployeeJpaRepository empJpaRepo ;
 	
-	@BeforeEach
-	public void initialize() {
-		context = new ClassPathXmlApplicationContext("MySpringConfig1.xml");	
-		
-	}	
+
 	@Test
 	public void testAllEmployees() {
-		EmployeeJpaRepository empJpaRepo = context.getBean(EmployeeJpaRepository.class);
 		Optional<Employee> emp = empJpaRepo.findById(7839);
 		if(emp.isPresent()) {
 			Employee empObj = emp.get();

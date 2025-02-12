@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context
@@ -8,18 +9,33 @@
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/aop 
-		http://www.springframework.org/schema/aop/spring-aop.xsd"
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/data/jpa
+    	http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd"
+    	   	
 	   xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop">
   
 
  
+
+  <bean id="hibernateJpaVendorAdapter" 
+    class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+
+
+ 
        <context:component-scan 
        				base-package="com.vishal"/>
        				
+       				
+      	<jpa:repositories base-package="com.vishal.repo" />
+       				
+       				
        <bean id="emf" 
        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+<!--           <property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>
+ -->       
 		<property name="persistenceUnitName" 
 		value="MyJPA" />
 	   </bean>

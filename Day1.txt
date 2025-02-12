@@ -1033,60 +1033,46 @@ where person0_.id=?
 
 
 
-letter.txt
+
+
+
+
+Spring data jpa
+Spring REST
+:wq
+
+entity
+	Cake
+repository
+	CakeRepository
+			- use test cases
+			to verify if the
+			above repo is 
+			working or not
+			C-R-RA-U-D
+service
+	CakeService
+controller
+	CakeController
+
 ----------
-Hello Dad,
+Angular application
 
-I am at Navi Mumbai.
-I am totally good here at my new job.
-It has lot of excitement and challenges.
-I am developing my mind to face it.
-Your blessings has always pushed me
-to the next level.
+Service
+CakeComponent
+	Enter cake name : 
+		Chocolate celebration
+	Enter cake price:
+		1000
+	Enter cake weight:
+		1kg
+	
+	Add Cake <-- button
 
-Yours
-Reeta
-------------------
 
 
-letter.xml
-------------
-1 letter-to-dad
-	2 greeting
-	2 main-content
-		2.1 location
-		2.1 job
-			2.1.1 status
-			2.1.2 challenges
-			2.1.3 pd
-		2.2 blessings
 
-<letter-to-dad>
-	<greeting>
-		Hello Dad
-	</greeting>
 
-	<main-content>
-		<location>	
-			I am at Navi Mumbai
-		</location>
-		<job>
-			<status>
-				I am totally good at my new job
-			</status>			
-			<challenges>
-				It has excitement and new challenges
-			</challenges>
-			<pd>
-				I am developing my mind here using tekstac
-			</pd>
-		</job>
-		<blessings>
-			your blessings made me stronger
-		</blessings>
-	</main-content>
-
-</letter-to-dad>
 
 
 
