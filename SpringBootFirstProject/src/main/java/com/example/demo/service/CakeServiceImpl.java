@@ -42,32 +42,87 @@ public class CakeServiceImpl implements CakeService {
 
 	@Override
 	public List<Float> getCostByCakeWeight(float weight) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("CakeService: getCakeNamesByCost() invoked...");
+
+		List<Float> cakeCostList = new ArrayList<Float>();
+		
+		Iterable<Cake> iterable = cakeRepo.findAll();
+		Iterator<Cake> iterator = iterable.iterator();
+		while(iterator.hasNext()) {
+			Cake theCake = iterator.next();
+			if(theCake.getCakeWeight() == weight) {
+				cakeCostList.add(theCake.getCakeCost());
+			}
+		}
+		return cakeCostList;
 	}
 
 	@Override
 	public List<Float> getWeightByCakeCost(float cost) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("CakeService: getCakeNamesByCost() invoked...");
+
+		List<Float> cakeWeightList = new ArrayList<Float>();
+		
+		Iterable<Cake> iterable = cakeRepo.findAll();
+		Iterator<Cake> iterator = iterable.iterator();
+		while(iterator.hasNext()) {
+			Cake theCake = iterator.next();
+			if(theCake.getCakeCost() == cost) {
+				cakeWeightList.add(theCake.getCakeWeight());
+			}
+		}
+		return cakeWeightList;
 	}
 
 	@Override
 	public List<Cake> getCakeByCost(float cost) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("CakeService: getCakeNamesByCost() invoked...");
+
+		List<Cake> cakeListAsPerCost = new ArrayList<Cake>();
+		
+		Iterable<Cake> iterable = cakeRepo.findAll();
+		Iterator<Cake> iterator = iterable.iterator();
+		while(iterator.hasNext()) {
+			Cake theCake = iterator.next();
+			if(theCake.getCakeCost() == cost) {
+				cakeListAsPerCost.add(theCake);
+			}
+		}
+		return cakeListAsPerCost;
 	}
 
 	@Override
 	public List<Cake> getCakeByWeight(float weight) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("CakeService: getCakeNamesByCost() invoked...");
+
+		List<Cake> cakeListAsPerWeight = new ArrayList<Cake>();
+		
+		Iterable<Cake> iterable = cakeRepo.findAll();
+		Iterator<Cake> iterator = iterable.iterator();
+		while(iterator.hasNext()) {
+			Cake theCake = iterator.next();
+			if(theCake.getCakeWeight() == weight) {
+				cakeListAsPerWeight.add(theCake);
+			}
+		}
+		return cakeListAsPerWeight;
 	}
 
 	@Override
 	public List<Cake> getCakeByName(String cakeName) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("CakeService: getCakeNamesByCost() invoked...");
+
+		List<Cake> cakeListByName = new ArrayList<Cake>();
+		
+		Iterable<Cake> iterable = cakeRepo.findAll();
+		Iterator<Cake> iterator = iterable.iterator();
+		while(iterator.hasNext()) {
+			Cake theCake = iterator.next();
+			if(theCake.getCakeName().equalsIgnoreCase(cakeName)) {
+				cakeListByName.add(theCake);
+			}
+		}
+		return cakeListByName;
 	}
 
 }

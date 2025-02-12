@@ -21,6 +21,7 @@ public class CakeControllerImpl implements CakeController {
 	
 	@GetMapping("/greet")
 	String greeting() {
+		
 		return "Welcome to Cake Example";
 	}
 	
@@ -28,6 +29,12 @@ public class CakeControllerImpl implements CakeController {
 	List<String> getCakeByCost(@PathVariable float amt) {
 			System.out.println("CakeController: getCakeByCost() invoked...");
 			return cakeService.getCakeNamesByCost(amt);
+	}
+	
+	@GetMapping("/weight/{wt}") //URL names must be unique
+	List<Float> getCakeByWeight(@PathVariable float wt) {
+			System.out.println("CakeController: getCakeByWeight() invoked...");
+			return cakeService.getCostByCakeWeight(wt);
 	}
 	
 	@GetMapping("/all")
