@@ -16,7 +16,12 @@ public class CakeServiceImpl implements CakeService {
 	@Autowired
 	CakeRepository cakeRepo;
 	
-	
+	public List<Cake> getAllCakes() {
+		List<Cake> cakeList = new ArrayList<Cake>();
+		 cakeRepo.findAll().forEach(cakeList::add); 
+		 return cakeList;
+	}
+
 	@Override
 	public List<String> getCakeNamesByCost(float cost) {
 		// TODO Auto-generated method stub

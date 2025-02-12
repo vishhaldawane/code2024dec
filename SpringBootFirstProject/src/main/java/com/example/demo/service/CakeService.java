@@ -17,4 +17,6 @@ public interface CakeService {
 	List<Cake> getCakeByWeight(float weight);//500gm
 	List<Cake> getCakeByName(String cakeName);//chocoruffle
 	
+	List<Cake> getAllCakes();//unconditional return
+	
 }
