@@ -29,7 +29,7 @@ public class CakeServiceImpl implements CakeService {
 
 		List<String> cakeNamesList = new ArrayList<String>();
 		
-		Iterable<Cake> iterable = cakeRepo.findAll();
+		/*Iterable<Cake> iterable = cakeRepo.findAll();
 		Iterator<Cake> iterator = iterable.iterator();
 		while(iterator.hasNext()) {
 			Cake theCake = iterator.next();
@@ -37,6 +37,14 @@ public class CakeServiceImpl implements CakeService {
 				cakeNamesList.add(theCake.getCakeName());
 			}
 		}
+		return cakeNamesList;*/
+		cakeRepo.findAll().forEach(
+				(cakeObj)->
+				{ 
+					if(cakeObj.getCakeCost()==cost) 
+						cakeNamesList.add(cakeObj.getCakeName());
+				}
+		);
 		return cakeNamesList;
 	}
 
