@@ -41,22 +41,7 @@ public class CakeControllerImpl implements CakeController {
 		
 	}
 	
-	@ExceptionHandler(value = CakeNotFoundException.class)
-	@ResponseStatus(HttpStatus.NOT_FOUND)
-	@ResponseBody ErrorResponse cakeNotFoundHandler(CakeNotFoundException ex)
-	{	
-		System.out.println("cakeNotFoundHandler() invoked....");
-		return new ErrorResponse( HttpStatus.NOT_FOUND.value(), ex.getMessage());
-	}
 	
-	
-	@ExceptionHandler(value = CakeAlreadyExistsException.class)
-	@ResponseStatus(HttpStatus.CONFLICT)
-	@ResponseBody ErrorResponse cakeAlreadyExistHandler(CakeAlreadyExistsException ex)
-	{	
-		System.out.println("cakeAlreadyExistHandler() invoked....");
-		return new ErrorResponse( HttpStatus.CONFLICT.value(), ex.getMessage());
-	}
 	
 	
 	// localhost:8080/cakes/add  - pass the body of the Cake
