@@ -19,8 +19,10 @@ public interface CakeService {
 	
 	List<Cake> getAllCakes();//unconditional return
 	
-	Cake addCake(Cake cake);
-	Cake updateCake(Cake cake);
+	Cake getCake(int cakeId); // throws CakeNotFoundException;
+	
+	String addCake(Cake cake);
+	String updateCake(Cake cake);
 	void deleteCake(Cake cake);
 	void deleteCakeById(int cakeId);
 }

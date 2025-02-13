@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Cake;
 import com.example.demo.repository.CakeRepository;
+import com.example.demo.service.exceptions.CakeAlreadyExistsException;
+import com.example.demo.service.exceptions.CakeNotFoundException;
 
 @Service
 public class CakeServiceImpl implements CakeService {
@@ -16,12 +18,46 @@ public class CakeServiceImpl implements CakeService {
 	@Autowired
 	CakeRepository cakeRepo;
 	
-	public Cake addCake(Cake cake) {
-		return cakeRepo.save(cake);
+	
+	public Cake getCake(int cakeId)
+	{
+		return cakeRepo.findById(cakeId).orElseThrow(
+				() -> new CakeNotFoundException(
+						"NO CAKE PRESENT WITH ID = " + cakeId)
+				      ); 
 	}
 	
-	public Cake updateCake(Cake cake) {
-		return cakeRepo.save(cake);
+	public String addCake(Cake cake) {
+		//return cakeRepo.save(cake);
+		Cake existingCake = cakeRepo.findById(cake.getCakeId())
+	               .orElse(null);
+			 
+	     if (existingCake == null) {
+	         cakeRepo.save(cake);
+	         return "Cake added successfully";
+	     }
+	     else
+	         throw new CakeAlreadyExistsException(
+	             "Cake already exists!!");
+ 
+
+	}
+	
+	public String updateCake(Cake cake) {
+		Cake existingCake = cakeRepo.findById(cake.getCakeId())
+              .orElse(null);
+		
+	    if (existingCake == null)
+	        throw new CakeNotFoundException("No Such Cake exists!!");
+	    else {
+	    	existingCake.setCakeName(cake.getCakeName());
+	    	existingCake.setCakeCost(cake.getCakeCost());
+	    	existingCake.setCakeWeight(cake.getCakeWeight());
+	    	
+	        cakeRepo.save(existingCake);
+	        return "Cake updated Successfully";
+	    }
+
 	}
 	
 	public void deleteCake(Cake cake) {

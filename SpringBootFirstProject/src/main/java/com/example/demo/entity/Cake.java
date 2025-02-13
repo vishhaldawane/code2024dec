@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Cake {
 	@Id
-	@GeneratedValue
+	//@GeneratedValue
 	private int cakeId;
 	private String cakeName; // cake_name
 	private float cakeCost; // cake_cost
