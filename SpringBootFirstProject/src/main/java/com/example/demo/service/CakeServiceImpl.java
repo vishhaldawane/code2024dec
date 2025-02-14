@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.entity.Cake;
 import com.example.demo.repository.CakeRepository;
@@ -19,6 +20,7 @@ public class CakeServiceImpl implements CakeService {
 	CakeRepository cakeRepo;
 	
 	
+	
 	public Cake getCake(int cakeId)
 	{
 		return cakeRepo.findById(cakeId).orElseThrow(
@@ -27,6 +29,7 @@ public class CakeServiceImpl implements CakeService {
 				      ); 
 	}
 	
+	@Transactional
 	public String addCake(Cake cake) {
 		//return cakeRepo.save(cake);
 		Cake existingCake = cakeRepo.findById(cake.getCakeId())

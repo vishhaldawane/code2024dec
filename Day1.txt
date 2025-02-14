@@ -1122,6 +1122,123 @@ DELETE - for deleting the object
 
 
 
+SHWETA
+------------
+URL1
+http://192.168.1.10:8080/cakes/10
+
+	{
+		"cakeId" : 10,
+		"cakeName" : "Choco Ruffle",
+		"cakeCost" : 500,
+		"cakeWeight": 500
+	}
+CakeDetailsProject : CRUD services
+1. DB table cake
+2. Pojo Cake
+3. CakeRepo
+4. CakeService
+	Cake related excpetions - global EH
+5. CakeController
+-----------------------------
+SANIKA
+
+URL2
+http://192.168.0.20:8080/orders/101
+PN : 101 is the order id  
+	{
+		"orderId" : 101,
+		"orderDate": 10-Oct-2025,
+		"cakeId" : 10,
+		"qty" : 2,
+		"total" : 1000
+	}
+CakeOrderDetails
+1. DB - cake_order
+2. pojo - CakeOrder
+3. Repo - CakeOrderRepo
+4. Service - CakeOrderService
+	global exceptions handler
+5. Controller - CakeOrderController
+
+
+-----------------------------
+YASHVI
+
+URL3
+http://192.168.0.30:8080/delivery/120
+PN : 120 is the delivery id
+
+RestTemplate rt = new RestTemplate();
+rt.getForObject("url");
+
+
+	{
+		"cakeName" : "Choco Ruffle",
+		"cakeWeight": 500
+	},
+	{
+		"orderId" : 101,
+		"orderDate": 10-Oct-2025,
+		"qty" : 2,
+		"total" : 1000
+	},
+	{
+		"custId" : 902
+		"custName" : "Julie",
+		"address" : "21, West Avenue CA",
+		"phone": 1828283
+	}
+
+class DeliveryDetails
+{
+	Cake cake;
+	Order order;
+	Delivery delivery;
+}
+CakeOrderDetails
+1. DB - cake_order
+2. pojo - CakeOrder
+3. Repo - CakeOrderRepo
+4. Service - CakeOrderService
+	global exceptions handler
+5. Controller - CakeOrderController
+
+
+
+Cake cake = new Cake();
+cake.setters...
+
+CakeOrder order = new CakeOrder();
+order.setters..
+
+
+Delivery del = new Delivery();
+del.setters...
+
+DeliveryDetails dd = new DeliveryDetails();
+dd.setCake(cake);
+dd.setOrder(order);
+
+class DeliveryDetails
+{
+	Cake cake;
+	CakeOrder order;
+	Customer cust;
+
+	void setCake(Cake c) { }
+	void setOrder(Order o) { }
+	void setCust(Customer c) { }	
+}
+
+
+
+
+
+
+
+
+
 
 
 
