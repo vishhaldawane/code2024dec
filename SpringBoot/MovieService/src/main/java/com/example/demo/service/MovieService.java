@@ -10,4 +10,6 @@ public interface MovieService {
 	Movie find(int id);
 	
 	CinemaTemplate details(int id);
+	public CinemaTemplate details2(int id);
+
 }

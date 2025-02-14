@@ -34,4 +34,9 @@ public class MovieController {
 	public CinemaTemplate getDetails(@PathVariable int id) {
 		return service.details(id);
 	}
+	
+	@GetMapping(value = "/cinema2/{id}", produces = "application/json")
+	public CinemaTemplate getDetails2(@PathVariable int id) {
+		return service.details2(id); //invoking feign client
+	}
 }
