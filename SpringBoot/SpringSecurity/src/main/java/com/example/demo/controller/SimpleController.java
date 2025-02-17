@@ -12,14 +12,14 @@ public class SimpleController {
 	
 	@GetMapping("/")
 	public String homePage() {
-		return "<h1> Welcome to Home Page </h1>";	
+		return "<h1> Welcome to Home Page </h1> ";	
 	}
 	@GetMapping("/user")
 	public String endUser() {
-		return "<h1> Welcome End User </h1>";
+		return "<h1> Welcome End User </h1> <a href='logout'> Logout </a>";
 	}
 	@GetMapping("/admin")
 	public String adminUser() {
-		return "<h1> Welcome Admin User </h1>";
+		return "<h1> Welcome Admin User </h1> <a href='logout'> Logout </a>";
 	}
 }
