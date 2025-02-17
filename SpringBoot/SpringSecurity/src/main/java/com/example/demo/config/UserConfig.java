@@ -1,24 +1,25 @@
-package com.example.demo.config;
+/*package com.example.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.core.userdetails.User;
+*/
 
 /**
  * Configuration class for setting up user details service.
  * This class defines the UserDetailsService bean for in-memory user details management.
  */
-@Configuration
-public class UserConfig {
+//@Configuration
+//public class UserConfig {
 
     /**
      * Defines an in-memory user details service.
      *
      * @return the UserDetailsService bean.
      */
-    @Bean
+   /* @Bean
     public UserDetailsService userDetailsService() {
     	System.out.println("userDetailsService() invoked...");
         // Create an in-memory user details manager
@@ -36,4 +37,4 @@ public class UserConfig {
         // Return the configured UserDetailsService bean
         return userDetailsService;
     }
-}
+}*/

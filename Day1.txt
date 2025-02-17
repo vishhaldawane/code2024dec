@@ -1273,4 +1273,25 @@ DirectorService
 
 
 
+entity	repo		service	security controller
+|		| JpaRepo	 |
+|		| |		 |
+User  UserRepository |
+|Authority  findBy   |
+|				 |
+|UserDetails		 |
+| | 			      |
+Custom	 Username  |UserDetails
+ Security			 | |
+  User		UserDetailsServiceImpl
+				|
+	UserDetails loadUserbyUsername(String un)
+		
+
+
+
+
+
+
+
 
