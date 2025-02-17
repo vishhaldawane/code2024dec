@@ -1243,34 +1243,4 @@ class DeliveryDetails
 
 
 
-MovieService
-	Movie		Director		CinemaTemplate
-	MovieRepo
-	MovieService --> CinemaTemplate cinema; 
-					Movie m = movieRepo.findById(10);
-					Director d = rest.getForObject("URL");
-					cinema.setMovie(m);
-					cinema.setDirector(d);
-					return cinema;
-
-	MoiveController
-		|
-	localhost:9001/movies/10
-
-DirectorService
-	Director -> table
-	DirectorRepo
-	DirectorService
-	DirectorController
-		|
-	localhost:9002/directors/101
-
-
-
-
-
-
-
-
-
 
