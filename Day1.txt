@@ -1291,6 +1291,44 @@ Custom	 Username  |UserDetails
 
 
 
+Spring			Angular
+as				as
+BackEnd			FrontEnd
+|				|
+db				html - view
+entity			css  - style
+repo				JS   - validation
+service			|
+	DTO			angular - component
+controller			[ html + css + ts ]
+				ShowMovieComponent
+					Enter movie id : 140
+					[ Show ] <-- click
+					  |
+	<----------------ShowMovieService
+	http.get("http://localhost:9001/movie/",x) 
+					
+
+
+<hc> </hc>
+
+
+
+@Component(
+	name:hc
+	html:myheading.html <-- view
+	css:myheading.css<-- styles
+)
+class HeadingComponent
+{
+	logic
+}
+
+
+
+
+
+
 
 
 
