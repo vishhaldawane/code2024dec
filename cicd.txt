@@ -1,0 +1,68 @@
+install plugins
+	maven integration
+	copy artifact
+	deploy to container
+-------------------
+
+webapp-package
+	- source code management 
+	  - Repositories
+		- Repositories URL
+				
+
+	- Build
+		Top level maven targets 
+		- goal  -> clean package
+
+	Post-build Actions
+		-Archieve the artifacts
+		- files to archieve
+		**/*.war
+
+
+webapp-deploy
+	- source code management 
+		none
+	
+	Build Triggers
+		check->Build after other projects are built
+		Projects to watch : webapp-package, 
+			CheckRadio->Trigger only if build is stable		
+
+	Build
+		copy artefact from another project
+		Project name : webapp-package
+		Which build  : Latest successful build
+		Artifacts to copy : **/*.war
+	
+	Post-build Actions
+		deploy war/ear to container
+		WAR/EAR files :  **/*.war
+		Credentials : tomcat/******
+		TomcatURL : http://localhost:8085/
+
+GreetWorldProject> git init
+GreetWorldProject> git add .
+GreetWorldProject> git commit -m "initial commit"
+GreetWorldProject> git remote add origin https://github.com/vishhaldawane/GreetWorldProject.git
+git branch -M main
+GreetWorldProject> git push -u origin main
+
+AFTER CICD
+
+GreetWorldProject> git add .
+GreetWorldProject> git commit -m "Updated index.jsp page"
+GreetWorldProject> git push origin master
+
+
+server.xml for tomcat to change port number
+-----------------------------------------------
+<Connector port="8085" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443" />
+
+tomcat-users.xml
+------------------------------
+<role rolename="admin-gui"/>
+<role rolename="manager-script"/>
+<user username="tomcat" password="tomcat" roles="admin-gui,manager-script"/>
